@@ -1,0 +1,1324 @@
+{
+    "pipes": [],
+    "interfaces": [],
+    "injectables": [
+        {
+            "name": "ScTailwindService",
+            "id": "injectable-ScTailwindService-21239f327e229cccac0a8c7d676a44f2",
+            "file": "projects/sc-tailwind/src/lib/sc-tailwind.service.ts",
+            "properties": [],
+            "methods": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { Injectable } from '@angular/core';\n\n@Injectable({\n  providedIn: 'root'\n})\nexport class ScTailwindService {\n\n  constructor() { }\n}\n",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 6
+            },
+            "type": "injectable"
+        }
+    ],
+    "guards": [],
+    "interceptors": [],
+    "classes": [],
+    "directives": [
+        {
+            "name": "ScTwDropdown",
+            "id": "directive-ScTwDropdown-ec9d79e8eb9ee34b551f7bf0b70c7406",
+            "file": "projects/sc-tailwind/src/lib/directives/menu-dropdown/sc-tw-dropdown.directive.ts",
+            "type": "directive",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { ContentChild, Directive, ElementRef, HostListener, Renderer2, ViewChild } from '@angular/core';\nimport { ScTwDropdownButtonDirective } from \"./sc-tw-dropdown-button.directive\";\nimport { ScTwDropdownContentDirective } from \"./sc-tw-dropdown-content.directive\";\n\n@Directive({\n  selector: '[sc-tw-dropdown]'\n})\nexport class ScTwDropdown {\n  @ContentChild(ScTwDropdownButtonDirective) buttonChild!: ScTwDropdownButtonDirective;\n  @ContentChild(ScTwDropdownContentDirective, { read: ElementRef }) contentChild!: ScTwDropdownContentDirective;\n\n  private showContent = false;\n\n  constructor(private renderer: Renderer2) {\n  }\n\n  @HostListener('click') onClick() {\n    this.showContent = !this.showContent;\n    if (this.contentChild) {\n      if (this.showContent) {\n        // @ts-ignore\n        this.renderer.removeClass(this.contentChild.nativeElement, 'hidden');\n      } else {\n        // @ts-ignore\n        this.renderer.addClass(this.contentChild.nativeElement, 'hidden');\n      }\n    }\n  }\n}\n",
+            "selector": "[sc-tw-dropdown]",
+            "providers": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [
+                {
+                    "name": "click",
+                    "args": [],
+                    "argsDecorator": [],
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 17
+                }
+            ],
+            "propertiesClass": [
+                {
+                    "name": "buttonChild",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ScTwDropdownButtonDirective",
+                    "optional": false,
+                    "description": "",
+                    "line": 9,
+                    "decorators": [
+                        {
+                            "name": "ContentChild",
+                            "stringifiedArguments": "ScTwDropdownButtonDirective"
+                        }
+                    ]
+                },
+                {
+                    "name": "contentChild",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ScTwDropdownContentDirective",
+                    "optional": false,
+                    "description": "",
+                    "line": 10,
+                    "decorators": [
+                        {
+                            "name": "ContentChild",
+                            "stringifiedArguments": "ScTwDropdownContentDirective, {read: ElementRef}"
+                        }
+                    ]
+                },
+                {
+                    "name": "showContent",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 12,
+                    "modifierKind": [
+                        120
+                    ]
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "onClick",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 17,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "decorators": [
+                        {
+                            "name": "HostListener",
+                            "stringifiedArguments": "'click'"
+                        }
+                    ]
+                }
+            ],
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "renderer",
+                        "type": "Renderer2",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 12,
+                "jsdoctags": [
+                    {
+                        "name": "renderer",
+                        "type": "Renderer2",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "ScTwDropdownButtonDirective",
+            "id": "directive-ScTwDropdownButtonDirective-2b4c248eacaf74374ccb1b82fb4c2bba",
+            "file": "projects/sc-tailwind/src/lib/directives/menu-dropdown/sc-tw-dropdown-button.directive.ts",
+            "type": "directive",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { Directive } from '@angular/core';\n\n@Directive({\n  selector: '[sc-tw-dropdown-button]'\n})\nexport class ScTwDropdownButtonDirective {\n\n  constructor() { }\n\n}\n",
+            "selector": "[sc-tw-dropdown-button]",
+            "providers": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 6
+            }
+        },
+        {
+            "name": "ScTwDropdownContentDirective",
+            "id": "directive-ScTwDropdownContentDirective-6d51a66a08e6b51328561b21343e38c0",
+            "file": "projects/sc-tailwind/src/lib/directives/menu-dropdown/sc-tw-dropdown-content.directive.ts",
+            "type": "directive",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { Directive } from '@angular/core';\n\n@Directive({\n  selector: '[sc-tw-dropdown-content]'\n})\nexport class ScTwDropdownContentDirective {\n\n  constructor() { }\n\n}\n",
+            "selector": "[sc-tw-dropdown-content]",
+            "providers": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 6
+            }
+        }
+    ],
+    "components": [
+        {
+            "name": "AppComponent",
+            "id": "component-AppComponent-163a41ccc4c1d9cac8a31443cd89b4ce",
+            "file": "projects/sc-tailwind-demo/src/app/app.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-root",
+            "styleUrls": [
+                "./app.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./app.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "title",
+                    "defaultValue": "'sc-tailwind-demo'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 9
+                }
+            ],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-root',\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.scss']\n})\nexport class AppComponent {\n  title = 'sc-tailwind-demo';\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./app.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "templateData": "<!-- This example requires Tailwind CSS v2.0+ -->\n<div class=\"h-screen flex overflow-hidden bg-gray-100\">\n  <!-- Off-canvas menu for mobile, show/hide based on off-canvas menu state. -->\n  <div class=\"fixed inset-0 flex z-40 md:hidden\" role=\"dialog\" aria-modal=\"true\">\n    <!--\n      Off-canvas menu overlay, show/hide based on off-canvas menu state.\n\n      Entering: \"transition-opacity ease-linear duration-300\"\n        From: \"opacity-0\"\n        To: \"opacity-100\"\n      Leaving: \"transition-opacity ease-linear duration-300\"\n        From: \"opacity-100\"\n        To: \"opacity-0\"\n    -->\n    <div class=\"fixed inset-0 bg-gray-600 bg-opacity-75\" aria-hidden=\"true\"></div>\n\n    <!--\n      Off-canvas menu, show/hide based on off-canvas menu state.\n\n      Entering: \"transition ease-in-out duration-300 transform\"\n        From: \"-translate-x-full\"\n        To: \"translate-x-0\"\n      Leaving: \"transition ease-in-out duration-300 transform\"\n        From: \"translate-x-0\"\n        To: \"-translate-x-full\"\n    -->\n    <div class=\"relative flex-1 flex flex-col max-w-xs w-full bg-gray-800\">\n      <!--\n        Close button, show/hide based on off-canvas menu state.\n\n        Entering: \"ease-in-out duration-300\"\n          From: \"opacity-0\"\n          To: \"opacity-100\"\n        Leaving: \"ease-in-out duration-300\"\n          From: \"opacity-100\"\n          To: \"opacity-0\"\n      -->\n      <div class=\"absolute top-0 right-0 -mr-12 pt-2\">\n        <button class=\"ml-1 flex items-center justify-center h-10 w-10 rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white\">\n          <span class=\"sr-only\">Close sidebar</span>\n          <!-- Heroicon name: outline/x -->\n          <svg class=\"h-6 w-6 text-white\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\" aria-hidden=\"true\">\n            <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M6 18L18 6M6 6l12 12\" />\n          </svg>\n        </button>\n      </div>\n\n      <div class=\"flex-1 h-0 pt-5 pb-4 overflow-y-auto\">\n        <div class=\"flex-shrink-0 flex items-center px-4\">\n          <img class=\"h-8 w-auto\" src=\"https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg\" alt=\"Workflow\">\n        </div>\n        <nav class=\"mt-5 px-2 space-y-1\">\n          <!-- Current: \"bg-gray-900 text-white\", Default: \"text-gray-300 hover:bg-gray-700 hover:text-white\" -->\n          <a href=\"/headings\" class=\"bg-gray-900 text-white group flex items-center px-2 py-2 text-base font-medium rounded-md\">\n            <!--\n              Heroicon name: outline/home\n\n              Current: \"text-gray-300\", Default: \"text-gray-400 group-hover:text-gray-300\"\n            -->\n            <svg class=\"text-gray-300 mr-4 flex-shrink-0 h-6 w-6\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\" aria-hidden=\"true\">\n              <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6\" />\n            </svg>\n            Headings\n          </a>\n\n          <a href=\"#\" class=\"text-gray-300 hover:bg-gray-700 hover:text-white group flex items-center px-2 py-2 text-base font-medium rounded-md\">\n            <!-- Heroicon name: outline/users -->\n            <svg class=\"text-gray-400 group-hover:text-gray-300 mr-4 flex-shrink-0 h-6 w-6\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\" aria-hidden=\"true\">\n              <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z\" />\n            </svg>\n            Cards\n          </a>\n\n          <a href=\"#\" class=\"text-gray-300 hover:bg-gray-700 hover:text-white group flex items-center px-2 py-2 text-base font-medium rounded-md\">\n            <!-- Heroicon name: outline/folder -->\n            <svg class=\"text-gray-400 group-hover:text-gray-300 mr-4 flex-shrink-0 h-6 w-6\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\" aria-hidden=\"true\">\n              <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z\" />\n            </svg>\n            Data Display\n          </a>\n\n          <a href=\"#\" class=\"text-gray-300 hover:bg-gray-700 hover:text-white group flex items-center px-2 py-2 text-base font-medium rounded-md\">\n            <!-- Heroicon name: outline/calendar -->\n            <svg class=\"text-gray-400 group-hover:text-gray-300 mr-4 flex-shrink-0 h-6 w-6\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\" aria-hidden=\"true\">\n              <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z\" />\n            </svg>\n            Calendar\n          </a>\n\n          <a href=\"#\" class=\"text-gray-300 hover:bg-gray-700 hover:text-white group flex items-center px-2 py-2 text-base font-medium rounded-md\">\n            <!-- Heroicon name: outline/inbox -->\n            <svg class=\"text-gray-400 group-hover:text-gray-300 mr-4 flex-shrink-0 h-6 w-6\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\" aria-hidden=\"true\">\n              <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4\" />\n            </svg>\n            Documents\n          </a>\n\n          <a href=\"#\" class=\"text-gray-300 hover:bg-gray-700 hover:text-white group flex items-center px-2 py-2 text-base font-medium rounded-md\">\n            <!-- Heroicon name: outline/chart-bar -->\n            <svg class=\"text-gray-400 group-hover:text-gray-300 mr-4 flex-shrink-0 h-6 w-6\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\" aria-hidden=\"true\">\n              <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z\" />\n            </svg>\n            Reports\n          </a>\n        </nav>\n      </div>\n      <div class=\"flex-shrink-0 flex bg-gray-700 p-4\">\n        <a href=\"#\" class=\"flex-shrink-0 group block\">\n          <div class=\"flex items-center\">\n            <div>\n              <img class=\"inline-block h-10 w-10 rounded-full\" src=\"https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80\" alt=\"\">\n            </div>\n            <div class=\"ml-3\">\n              <p class=\"text-base font-medium text-white\">\n                Tom Cook\n              </p>\n              <p class=\"text-sm font-medium text-gray-400 group-hover:text-gray-300\">\n                View profile\n              </p>\n            </div>\n          </div>\n        </a>\n      </div>\n    </div>\n\n    <div class=\"flex-shrink-0 w-14\">\n      <!-- Force sidebar to shrink to fit close icon -->\n    </div>\n  </div>\n\n  <!-- Static sidebar for desktop -->\n  <div class=\"hidden md:flex md:flex-shrink-0\">\n    <div class=\"flex flex-col w-64\">\n      <!-- Sidebar component, swap this element with another sidebar if you like -->\n      <div class=\"flex flex-col h-0 flex-1 bg-gray-800\">\n        <div class=\"flex-1 flex flex-col pt-5 pb-4 overflow-y-auto\">\n          <div class=\"flex items-center flex-shrink-0 px-4\">\n            <img class=\"h-8 w-auto\" src=\"https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg\" alt=\"Workflow\">\n          </div>\n          <nav class=\"mt-5 flex-1 px-2 bg-gray-800 space-y-1\">\n            <!-- Current: \"bg-gray-900 text-white\", Default: \"text-gray-300 hover:bg-gray-700 hover:text-white\" -->\n            <a [routerLink]=\"'/headings'\" [routerLinkActive]=\"'bg-gray-900'\" class=\"hover:bg-gray-700 text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md\">\n              <!--\n                Heroicon name: outline/home\n\n                Current: \"text-gray-300\", Default: \"text-gray-400 group-hover:text-gray-300\"\n              -->\n              <svg class=\"text-gray-300 mr-3 flex-shrink-0 h-6 w-6\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\" aria-hidden=\"true\">\n                <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6\" />\n              </svg>\n              Headings\n            </a>\n\n            <a [routerLink]=\"'/cards'\" [routerLinkActive]=\"'bg-gray-900'\" class=\"text-gray-300 hover:bg-gray-700 hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md\">\n              <!-- Heroicon name: outline/users -->\n              <svg class=\"text-gray-400 group-hover:text-gray-300 mr-3 flex-shrink-0 h-6 w-6\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\" aria-hidden=\"true\">\n                <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z\" />\n              </svg>\n              Cards\n            </a>\n\n            <a [routerLink]=\"'/data-display'\" [routerLinkActive]=\"'bg-gray-900'\" class=\"text-gray-300 hover:bg-gray-700 hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md\">\n              <!-- Heroicon name: outline/folder -->\n              <svg class=\"text-gray-400 group-hover:text-gray-300 mr-3 flex-shrink-0 h-6 w-6\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\" aria-hidden=\"true\">\n                <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z\" />\n              </svg>\n              Data Display\n            </a>\n\n            <a [routerLink]=\"'/tables'\" [routerLinkActive]=\"'bg-gray-900'\" class=\"text-gray-300 hover:bg-gray-700 hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md\">\n              <!-- Heroicon name: outline/calendar -->\n              <svg class=\"text-gray-400 group-hover:text-gray-300 mr-3 flex-shrink-0 h-6 w-6\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\" aria-hidden=\"true\">\n                <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z\" />\n              </svg>\n              Tables\n            </a>\n\n            <a href=\"#\" class=\"text-gray-300 hover:bg-gray-700 hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md\">\n              <!-- Heroicon name: outline/inbox -->\n              <svg class=\"text-gray-400 group-hover:text-gray-300 mr-3 flex-shrink-0 h-6 w-6\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\" aria-hidden=\"true\">\n                <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4\" />\n              </svg>\n              Documents\n            </a>\n\n            <a href=\"#\" class=\"text-gray-300 hover:bg-gray-700 hover:text-white group flex items-center px-2 py-2 text-sm font-medium rounded-md\">\n              <!-- Heroicon name: outline/chart-bar -->\n              <svg class=\"text-gray-400 group-hover:text-gray-300 mr-3 flex-shrink-0 h-6 w-6\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\" aria-hidden=\"true\">\n                <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z\" />\n              </svg>\n              Reports\n            </a>\n          </nav>\n        </div>\n        <div class=\"flex-shrink-0 flex bg-gray-700 p-4\">\n          <a href=\"#\" class=\"flex-shrink-0 w-full group block\">\n            <div class=\"flex items-center\">\n              <div>\n                <img class=\"inline-block h-9 w-9 rounded-full\" src=\"https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80\" alt=\"\">\n              </div>\n              <div class=\"ml-3\">\n                <p class=\"text-sm font-medium text-white\">\n                  Tom Cook\n                </p>\n                <p class=\"text-xs font-medium text-gray-300 group-hover:text-gray-200\">\n                  View profile\n                </p>\n              </div>\n            </div>\n          </a>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class=\"flex flex-col w-0 flex-1 overflow-hidden\">\n    <div class=\"md:hidden pl-1 pt-1 sm:pl-3 sm:pt-3\">\n      <button class=\"-ml-0.5 -mt-0.5 h-12 w-12 inline-flex items-center justify-center rounded-md text-gray-500 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500\">\n        <span class=\"sr-only\">Open sidebar</span>\n        <!-- Heroicon name: outline/menu -->\n        <svg class=\"h-6 w-6\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\" aria-hidden=\"true\">\n          <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M4 6h16M4 12h16M4 18h16\" />\n        </svg>\n      </button>\n    </div>\n    <main class=\"flex-1 relative z-0 overflow-y-auto focus:outline-none\">\n      <div class=\"py-6\">\n        <div class=\"max-w-7xl mx-auto px-4 sm:px-6 md:px-8\">\n          <!-- Replace with your content -->\n          <div class=\"py-4\">\n            <!--                        <div class=\"border-4 border-dashed border-gray-200 rounded-lg h-96\">-->\n            <router-outlet></router-outlet>\n            <!--                        </div>-->\n          </div>\n          <!-- /End replace -->\n        </div>\n      </div>\n    </main>\n  </div>\n</div>\n"
+        },
+        {
+            "name": "ButtonComponent",
+            "id": "component-ButtonComponent-a33d7a1f4327aac139cee904630657ad",
+            "file": "stories/components/buttons/buttons.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "storybook-button",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "buttons.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "backgroundColor",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "What background color to use",
+                    "description": "<p>What background color to use</p>\n",
+                    "line": 19,
+                    "type": "string"
+                },
+                {
+                    "name": "label",
+                    "defaultValue": "'Button'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "pos": 565,
+                            "end": 578,
+                            "flags": 4227072,
+                            "modifierFlagsCache": 0,
+                            "transformFlags": 0,
+                            "kind": 317,
+                            "tagName": {
+                                "pos": 566,
+                                "end": 574,
+                                "flags": 4227072,
+                                "modifierFlagsCache": 0,
+                                "transformFlags": 0,
+                                "kind": 78,
+                                "escapedText": "required"
+                            },
+                            "comment": ""
+                        }
+                    ],
+                    "rawdescription": "Button contents",
+                    "description": "<p>Button contents</p>\n",
+                    "line": 33,
+                    "type": "string"
+                },
+                {
+                    "name": "primary",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "Is this the principal call to action on the page?",
+                    "description": "<p>Is this the principal call to action on the page?</p>\n",
+                    "line": 13,
+                    "type": "boolean"
+                },
+                {
+                    "name": "size",
+                    "defaultValue": "'medium'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "How large should the button be?",
+                    "description": "<p>How large should the button be?</p>\n",
+                    "line": 25,
+                    "type": "\"small\" | \"medium\" | \"large\""
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "onClick",
+                    "defaultValue": "new EventEmitter<Event>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nOptional click handler\n",
+                    "description": "<p>Optional click handler</p>\n",
+                    "line": 39,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\n\n@Component({\n  selector: 'storybook-button',\n  templateUrl: 'buttons.component.html'\n  // styleUrls: ['./button.css'],\n})\nexport default class ButtonComponent {\n  /**\n   * Is this the principal call to action on the page?\n   */\n  @Input()\n  primary = false;\n\n  /**\n   * What background color to use\n   */\n  @Input()\n  backgroundColor?: string;\n\n  /**\n   * How large should the button be?\n   */\n  @Input()\n  size: 'small' | 'medium' | 'large' = 'medium';\n\n  /**\n   * Button contents\n   *\n   * @required\n   */\n  @Input()\n  label = 'Button';\n\n  /**\n   * Optional click handler\n   */\n  @Output()\n  onClick = new EventEmitter<Event>();\n\n  public get classes(): string[] {\n    const mode = this.primary ? 'storybook-button--primary' : 'storybook-button--secondary';\n\n    return ['storybook-button', `storybook-button--${this.size}`, mode];\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "accessors": {
+                "classes": {
+                    "name": "classes",
+                    "getSignature": {
+                        "name": "classes",
+                        "type": "[]",
+                        "returnType": "string[]",
+                        "line": 41
+                    }
+                }
+            },
+            "templateData": "<button type=\"button\" class=\"inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500\">\r\n  Button text\r\n</button>\r\n"
+        },
+        {
+            "name": "CardsPageComponent",
+            "id": "component-CardsPageComponent-9796124bb2ade4a503cc559128641962",
+            "file": "projects/sc-tailwind-demo/src/app/pages/cards-page/cards-page.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-cards-page",
+            "styleUrls": [
+                "./cards-page.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./cards-page.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 12,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-cards-page',\n  templateUrl: './cards-page.component.html',\n  styleUrls: ['./cards-page.component.scss']\n})\nexport class CardsPageComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./cards-page.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 8
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<div>\n    <h1 class=\"text-2xl font-semibold text-gray-900\">Cards</h1>\n</div>\n\n<!-- This example requires Tailwind CSS v2.0+ -->\n<div class=\"bg-white px-4 py-5 border-b border-gray-200 sm:px-6 my-8 rounded-lg shadow\">\n    <div class=\"-ml-4 -mt-2 flex items-center justify-between flex-wrap sm:flex-nowrap\">\n        <div class=\"ml-4 mt-2\">\n            <h3 class=\"text-lg leading-6 font-medium text-gray-900\">\n                Job Postings\n            </h3>\n            <p class=\"mt-1 text-sm text-gray-500\">\n                Lorem ipsum dolor sit amet consectetur adipisicing elit quam corrupti consectetur.\n            </p>\n        </div>\n        <div class=\"ml-4 mt-2 flex-shrink-0\">\n            <button type=\"button\"\n                    class=\"relative inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500\">\n                Create new job\n            </button>\n        </div>\n    </div>\n    <ul class=\"divide-y divide-gray-200 opacity-25 mt-4\" aria-disabled=\"true\">\n\n        <li>\n            <a href=\"#\" class=\"block hover:bg-gray-50\">\n                <div class=\"py-4\">\n                    <div class=\"flex items-center justify-between\">\n                        <div class=\"text-sm font-medium text-indigo-600 truncate\">\n                            Back End Developer\n                        </div>\n                        <div class=\"ml-2 flex-shrink-0 flex\">\n                        <span class=\"px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800\">\n                          Full-time\n                        </span>\n                        </div>\n                    </div>\n                    <div class=\"mt-2 flex justify-between\">\n                        <div class=\"sm:flex\">\n                            <div class=\"flex items-center text-sm text-gray-500\">\n                                <svg class=\"flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400\"\n                                     x-description=\"Heroicon name: solid/users\" xmlns=\"http://www.w3.org/2000/svg\"\n                                     viewBox=\"0 0 20 20\" fill=\"currentColor\" aria-hidden=\"true\">\n                                    <path d=\"M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z\"></path>\n                                </svg>\n                                Engineering\n                            </div>\n                        </div>\n                        <div class=\"ml-2 flex items-center text-sm text-gray-500\">\n                            <svg class=\"flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400\"\n                                 x-description=\"Heroicon name: solid/location-marker\" xmlns=\"http://www.w3.org/2000/svg\"\n                                 viewBox=\"0 0 20 20\" fill=\"currentColor\" aria-hidden=\"true\">\n                                <path fill-rule=\"evenodd\"\n                                      d=\"M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z\"\n                                      clip-rule=\"evenodd\"></path>\n                            </svg>\n                            Remote\n                        </div>\n                    </div>\n                </div>\n            </a>\n        </li>\n\n        <li>\n            <a href=\"#\" class=\"block hover:bg-gray-50\">\n                <div class=\"py-4\">\n                    <div class=\"flex items-center justify-between\">\n                        <div class=\"text-sm font-medium text-indigo-600 truncate\">\n                            Front End Developer\n                        </div>\n                        <div class=\"ml-2 flex-shrink-0 flex\">\n                        <span class=\"px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800\">\n                          Full-time\n                        </span>\n                        </div>\n                    </div>\n                    <div class=\"mt-2 flex justify-between\">\n                        <div class=\"sm:flex\">\n                            <div class=\"flex items-center text-sm text-gray-500\">\n                                <svg class=\"flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400\"\n                                     x-description=\"Heroicon name: solid/users\" xmlns=\"http://www.w3.org/2000/svg\"\n                                     viewBox=\"0 0 20 20\" fill=\"currentColor\" aria-hidden=\"true\">\n                                    <path d=\"M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z\"></path>\n                                </svg>\n                                Engineering\n                            </div>\n                        </div>\n                        <div class=\"ml-2 flex items-center text-sm text-gray-500\">\n                            <svg class=\"flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400\"\n                                 x-description=\"Heroicon name: solid/location-marker\" xmlns=\"http://www.w3.org/2000/svg\"\n                                 viewBox=\"0 0 20 20\" fill=\"currentColor\" aria-hidden=\"true\">\n                                <path fill-rule=\"evenodd\"\n                                      d=\"M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z\"\n                                      clip-rule=\"evenodd\"></path>\n                            </svg>\n                            Remote\n                        </div>\n                    </div>\n                </div>\n            </a>\n        </li>\n\n        <li>\n            <a href=\"#\" class=\"block hover:bg-gray-50\">\n                <div class=\"py-4\">\n                    <div class=\"flex items-center justify-between\">\n                        <div class=\"text-sm font-medium text-indigo-600 truncate\">\n                            User Interface Designer\n                        </div>\n                        <div class=\"ml-2 flex-shrink-0 flex\">\n                        <span class=\"px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800\">\n                          Full-time\n                        </span>\n                        </div>\n                    </div>\n                    <div class=\"mt-2 flex justify-between\">\n                        <div class=\"sm:flex\">\n                            <div class=\"flex items-center text-sm text-gray-500\">\n                                <svg class=\"flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400\"\n                                     x-description=\"Heroicon name: solid/users\" xmlns=\"http://www.w3.org/2000/svg\"\n                                     viewBox=\"0 0 20 20\" fill=\"currentColor\" aria-hidden=\"true\">\n                                    <path d=\"M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z\"></path>\n                                </svg>\n                                Design\n                            </div>\n                        </div>\n                        <div class=\"ml-2 flex items-center text-sm text-gray-500\">\n                            <svg class=\"flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400\"\n                                 x-description=\"Heroicon name: solid/location-marker\" xmlns=\"http://www.w3.org/2000/svg\"\n                                 viewBox=\"0 0 20 20\" fill=\"currentColor\" aria-hidden=\"true\">\n                                <path fill-rule=\"evenodd\"\n                                      d=\"M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z\"\n                                      clip-rule=\"evenodd\"></path>\n                            </svg>\n                            Remote\n                        </div>\n                    </div>\n                </div>\n            </a>\n        </li>\n\n    </ul>\n</div>\n\n<!-- This example requires Tailwind CSS v2.0+ -->\n<div class=\"bg-white px-4 py-5 sm:px-6 my-8 rounded-lg shadow\" style=\"min-height: 340px\">\n    <div class=\"flex space-x-3\">\n        <div class=\"flex-shrink-0\">\n            <img class=\"h-10 w-10 rounded-full\"\n                 src=\"https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80\"\n                 alt=\"\">\n        </div>\n        <div class=\"min-w-0 flex-1\">\n            <p class=\"text-sm font-medium text-gray-900\">\n                <a href=\"#\" class=\"hover:underline\">Chelsea Hagon</a>\n            </p>\n            <p class=\"text-sm text-gray-500\">\n                <a href=\"#\" class=\"hover:underline\">December 9 at 11:43 AM</a>\n            </p>\n        </div>\n        <div class=\"flex-shrink-0 self-center flex\">\n            <div class=\"relative z-30 inline-block text-left\" sc-tw-dropdown>\n                <div sc-tw-dropdown-button>\n                    <button type=\"button\"\n                            class=\"-m-2 p-2 rounded-full flex items-center text-gray-400 hover:text-gray-600\"\n                            id=\"menu-0-button\" aria-expanded=\"false\" aria-haspopup=\"true\">\n                        <span class=\"sr-only\">Open options</span>\n                        <!-- Heroicon name: solid/dots-vertical -->\n                        <svg class=\"h-5 w-5\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\"\n                             aria-hidden=\"true\">\n                            <path d=\"M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z\"/>\n                        </svg>\n                    </button>\n                </div>\n\n                <!--\n                  Dropdown menu, show/hide based on menu state.\n\n                  Entering: \"transition ease-out duration-100\"\n                    From: \"transform opacity-0 scale-95\"\n                    To: \"transform opacity-100 scale-100\"\n                  Leaving: \"transition ease-in duration-75\"\n                    From: \"transform opacity-100 scale-100\"\n                    To: \"transform opacity-0 scale-95\"\n                -->\n                <div sc-tw-dropdown-content\n                        class=\"origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none\"\n                     role=\"menu\" aria-orientation=\"vertical\" aria-labelledby=\"menu-0-button\" tabindex=\"-1\">\n                    <div class=\"py-1\" role=\"none\">\n                        <!-- Active: \"bg-gray-100 text-gray-900\", Not Active: \"text-gray-700\" -->\n                        <a href=\"#\" class=\"text-gray-700 flex px-4 py-2 text-sm\" role=\"menuitem\" tabindex=\"-1\"\n                           id=\"menu-0-item-0\">\n                            <!-- Heroicon name: solid/star -->\n                            <svg class=\"mr-3 h-5 w-5 text-gray-400\" xmlns=\"http://www.w3.org/2000/svg\"\n                                 viewBox=\"0 0 20 20\" fill=\"currentColor\" aria-hidden=\"true\">\n                                <path d=\"M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z\"/>\n                            </svg>\n                            <span>Add to favorites</span>\n                        </a>\n                        <a href=\"#\" class=\"text-gray-700 flex px-4 py-2 text-sm\" role=\"menuitem\" tabindex=\"-1\"\n                           id=\"menu-0-item-1\">\n                            <!-- Heroicon name: solid/code -->\n                            <svg class=\"mr-3 h-5 w-5 text-gray-400\" xmlns=\"http://www.w3.org/2000/svg\"\n                                 viewBox=\"0 0 20 20\" fill=\"currentColor\" aria-hidden=\"true\">\n                                <path fill-rule=\"evenodd\"\n                                      d=\"M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z\"\n                                      clip-rule=\"evenodd\"/>\n                            </svg>\n                            <span>Embed</span>\n                        </a>\n                        <a href=\"#\" class=\"text-gray-700 flex px-4 py-2 text-sm\" role=\"menuitem\" tabindex=\"-1\"\n                           id=\"menu-0-item-2\">\n                            <!-- Heroicon name: solid/flag -->\n                            <svg class=\"mr-3 h-5 w-5 text-gray-400\" xmlns=\"http://www.w3.org/2000/svg\"\n                                 viewBox=\"0 0 20 20\" fill=\"currentColor\" aria-hidden=\"true\">\n                                <path fill-rule=\"evenodd\"\n                                      d=\"M3 6a3 3 0 013-3h10a1 1 0 01.8 1.6L14.25 8l2.55 3.4A1 1 0 0116 13H6a1 1 0 00-1 1v3a1 1 0 11-2 0V6z\"\n                                      clip-rule=\"evenodd\"/>\n                            </svg>\n                            <span>Report content</span>\n                        </a>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n"
+        },
+        {
+            "name": "DataDisplayPageComponent",
+            "id": "component-DataDisplayPageComponent-5f821c65d0ea31331557bb0d1e23a7ea",
+            "file": "projects/sc-tailwind-demo/src/app/pages/data-display-page/data-display-page.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-data-display-page",
+            "styleUrls": [
+                "./data-display-page.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./data-display-page.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 12,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-data-display-page',\n  templateUrl: './data-display-page.component.html',\n  styleUrls: ['./data-display-page.component.scss']\n})\nexport class DataDisplayPageComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./data-display-page.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 8
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<div >\n    <h1 class=\"text-2xl font-semibold text-gray-900\">Data Display</h1>\n</div>\n\n<!-- This example requires Tailwind CSS v2.0+ -->\n<div class=\"my-8 rounded-lg\">\n    <dl class=\"mt-5 grid grid-cols-1 rounded-lg bg-white overflow-hidden shadow divide-y divide-gray-200 md:grid-cols-3 md:divide-y-0 md:divide-x\">\n        <div class=\"px-4 py-5 sm:p-6\">\n            <dt class=\"text-base font-normal text-gray-900\">\n                Total Subscribers\n            </dt>\n            <dd class=\"mt-1 flex justify-between items-baseline md:block lg:flex\">\n                <div class=\"flex items-baseline text-2xl font-semibold text-indigo-600\">\n                    71,897\n                    <span class=\"ml-2 text-sm font-medium text-gray-500\">\n            from 70,946\n          </span>\n                </div>\n\n                <div class=\"inline-flex items-baseline px-2.5 py-0.5 rounded-full text-sm font-medium bg-green-100 text-green-800 md:mt-2 lg:mt-0\">\n                    <!-- Heroicon name: solid/arrow-sm-up -->\n                    <svg class=\"-ml-1 mr-0.5 flex-shrink-0 self-center h-5 w-5 text-green-500\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\" aria-hidden=\"true\">\n                        <path fill-rule=\"evenodd\" d=\"M5.293 9.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 7.414V15a1 1 0 11-2 0V7.414L6.707 9.707a1 1 0 01-1.414 0z\" clip-rule=\"evenodd\" />\n                    </svg>\n                    <span class=\"sr-only\">\n            Increased by\n          </span>\n                    12%\n                </div>\n            </dd>\n        </div>\n\n        <div class=\"px-4 py-5 sm:p-6\">\n            <dt class=\"text-base font-normal text-gray-900\">\n                Avg. Open Rate\n            </dt>\n            <dd class=\"mt-1 flex justify-between items-baseline md:block lg:flex\">\n                <div class=\"flex items-baseline text-2xl font-semibold text-indigo-600\">\n                    58.16%\n                    <span class=\"ml-2 text-sm font-medium text-gray-500\">\n            from 56.14%\n          </span>\n                </div>\n\n                <div class=\"inline-flex items-baseline px-2.5 py-0.5 rounded-full text-sm font-medium bg-green-100 text-green-800 md:mt-2 lg:mt-0\">\n                    <!-- Heroicon name: solid/arrow-sm-up -->\n                    <svg class=\"-ml-1 mr-0.5 flex-shrink-0 self-center h-5 w-5 text-green-500\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\" aria-hidden=\"true\">\n                        <path fill-rule=\"evenodd\" d=\"M5.293 9.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 7.414V15a1 1 0 11-2 0V7.414L6.707 9.707a1 1 0 01-1.414 0z\" clip-rule=\"evenodd\" />\n                    </svg>\n                    <span class=\"sr-only\">\n            Increased by\n          </span>\n                    2.02%\n                </div>\n            </dd>\n        </div>\n\n        <div class=\"px-4 py-5 sm:p-6\">\n            <dt class=\"text-base font-normal text-gray-900\">\n                Avg. Click Rate\n            </dt>\n            <dd class=\"mt-1 flex justify-between items-baseline md:block lg:flex\">\n                <div class=\"flex items-baseline text-2xl font-semibold text-indigo-600\">\n                    24.57%\n                    <span class=\"ml-2 text-sm font-medium text-gray-500\">\n            from 28.62%\n          </span>\n                </div>\n\n                <div class=\"inline-flex items-baseline px-2.5 py-0.5 rounded-full text-sm font-medium bg-red-100 text-red-800 md:mt-2 lg:mt-0\">\n                    <!-- Heroicon name: solid/arrow-sm-down -->\n                    <svg class=\"-ml-1 mr-0.5 flex-shrink-0 self-center h-5 w-5 text-red-500\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\" aria-hidden=\"true\">\n                        <path fill-rule=\"evenodd\" d=\"M14.707 10.293a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 111.414-1.414L9 12.586V5a1 1 0 012 0v7.586l2.293-2.293a1 1 0 011.414 0z\" clip-rule=\"evenodd\" />\n                    </svg>\n                    <span class=\"sr-only\">\n            Decreased by\n          </span>\n                    4.05%\n                </div>\n            </dd>\n        </div>\n    </dl>\n</div>\n\n\n<!-- This example requires Tailwind CSS v2.0+ -->\n<div class=\"rounded-lg my-8\">\n    <dl class=\"mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3\">\n        <div class=\"relative bg-white pt-5 px-4 pb-12 sm:pt-6 sm:px-6 shadow rounded-lg overflow-hidden\">\n            <dt>\n                <div class=\"absolute bg-indigo-500 rounded-md p-3\">\n                    <!-- Heroicon name: outline/users -->\n                    <svg class=\"h-6 w-6 text-white\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\" aria-hidden=\"true\">\n                        <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z\" />\n                    </svg>\n                </div>\n                <p class=\"ml-16 text-sm font-medium text-gray-500 truncate\">Total Subscribers</p>\n            </dt>\n            <dd class=\"ml-16 pb-6 flex items-baseline sm:pb-7\">\n                <p class=\"text-2xl font-semibold text-gray-900\">\n                    71,897\n                </p>\n                <p class=\"ml-2 flex items-baseline text-sm font-semibold text-green-600\">\n                    <!-- Heroicon name: solid/arrow-sm-up -->\n                    <svg class=\"self-center flex-shrink-0 h-5 w-5 text-green-500\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\" aria-hidden=\"true\">\n                        <path fill-rule=\"evenodd\" d=\"M5.293 9.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 7.414V15a1 1 0 11-2 0V7.414L6.707 9.707a1 1 0 01-1.414 0z\" clip-rule=\"evenodd\" />\n                    </svg>\n                    <span class=\"sr-only\">\n            Increased by\n          </span>\n                    122\n                </p>\n                <div class=\"absolute bottom-0 inset-x-0 bg-gray-50 px-4 py-4 sm:px-6\">\n                    <div class=\"text-sm\">\n                        <a href=\"#\" class=\"font-medium text-indigo-600 hover:text-indigo-500\"> View all<span class=\"sr-only\"> Total Subscribers stats</span></a>\n                    </div>\n                </div>\n            </dd>\n        </div>\n\n        <div class=\"relative bg-white pt-5 px-4 pb-12 sm:pt-6 sm:px-6 shadow rounded-lg overflow-hidden\">\n            <dt>\n                <div class=\"absolute bg-indigo-500 rounded-md p-3\">\n                    <!-- Heroicon name: outline/mail-open -->\n                    <svg class=\"h-6 w-6 text-white\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\" aria-hidden=\"true\">\n                        <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M3 19v-8.93a2 2 0 01.89-1.664l7-4.666a2 2 0 012.22 0l7 4.666A2 2 0 0121 10.07V19M3 19a2 2 0 002 2h14a2 2 0 002-2M3 19l6.75-4.5M21 19l-6.75-4.5M3 10l6.75 4.5M21 10l-6.75 4.5m0 0l-1.14.76a2 2 0 01-2.22 0l-1.14-.76\" />\n                    </svg>\n                </div>\n                <p class=\"ml-16 text-sm font-medium text-gray-500 truncate\">Avg. Open Rate</p>\n            </dt>\n            <dd class=\"ml-16 pb-6 flex items-baseline sm:pb-7\">\n                <p class=\"text-2xl font-semibold text-gray-900\">\n                    58.16%\n                </p>\n                <p class=\"ml-2 flex items-baseline text-sm font-semibold text-green-600\">\n                    <!-- Heroicon name: solid/arrow-sm-up -->\n                    <svg class=\"self-center flex-shrink-0 h-5 w-5 text-green-500\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\" aria-hidden=\"true\">\n                        <path fill-rule=\"evenodd\" d=\"M5.293 9.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 7.414V15a1 1 0 11-2 0V7.414L6.707 9.707a1 1 0 01-1.414 0z\" clip-rule=\"evenodd\" />\n                    </svg>\n                    <span class=\"sr-only\">\n            Increased by\n          </span>\n                    5.4%\n                </p>\n                <div class=\"absolute bottom-0 inset-x-0 bg-gray-50 px-4 py-4 sm:px-6\">\n                    <div class=\"text-sm\">\n                        <a href=\"#\" class=\"font-medium text-indigo-600 hover:text-indigo-500\"> View all<span class=\"sr-only\"> Avg. Open Rate stats</span></a>\n                    </div>\n                </div>\n            </dd>\n        </div>\n\n        <div class=\"relative bg-white pt-5 px-4 pb-12 sm:pt-6 sm:px-6 shadow rounded-lg overflow-hidden\">\n            <dt>\n                <div class=\"absolute bg-indigo-500 rounded-md p-3\">\n                    <!-- Heroicon name: outline/cursor-click -->\n                    <svg class=\"h-6 w-6 text-white\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\" aria-hidden=\"true\">\n                        <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122\" />\n                    </svg>\n                </div>\n                <p class=\"ml-16 text-sm font-medium text-gray-500 truncate\">Avg. Click Rate</p>\n            </dt>\n            <dd class=\"ml-16 pb-6 flex items-baseline sm:pb-7\">\n                <p class=\"text-2xl font-semibold text-gray-900\">\n                    24.57%\n                </p>\n                <p class=\"ml-2 flex items-baseline text-sm font-semibold text-red-600\">\n                    <!-- Heroicon name: solid/arrow-sm-down -->\n                    <svg class=\"self-center flex-shrink-0 h-5 w-5 text-red-500\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\" aria-hidden=\"true\">\n                        <path fill-rule=\"evenodd\" d=\"M14.707 10.293a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 111.414-1.414L9 12.586V5a1 1 0 012 0v7.586l2.293-2.293a1 1 0 011.414 0z\" clip-rule=\"evenodd\" />\n                    </svg>\n                    <span class=\"sr-only\">\n            Decreased by\n          </span>\n                    3.2%\n                </p>\n                <div class=\"absolute bottom-0 inset-x-0 bg-gray-50 px-4 py-4 sm:px-6\">\n                    <div class=\"text-sm\">\n                        <a href=\"#\" class=\"font-medium text-indigo-600 hover:text-indigo-500\"> View all<span class=\"sr-only\"> Avg. Click Rate stats</span></a>\n                    </div>\n                </div>\n            </dd>\n        </div>\n    </dl>\n</div>\n\n\n\n<!-- This example requires Tailwind CSS v2.0+ -->\n<div class=\"bg-white shadow overflow-hidden sm:rounded-lg my-8\">\n    <div class=\"px-4 py-5 sm:px-6\">\n        <h3 class=\"text-lg leading-6 font-medium text-gray-900\">\n            Applicant Information\n        </h3>\n        <p class=\"mt-1 max-w-2xl text-sm text-gray-500\">\n            Personal details and application.\n        </p>\n    </div>\n    <div class=\"border-t border-gray-200 px-4 py-5 sm:p-0\">\n        <dl class=\"sm:divide-y sm:divide-gray-200\">\n            <div class=\"py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6\">\n                <dt class=\"text-sm font-medium text-gray-500\">\n                    Full name\n                </dt>\n                <dd class=\"mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2\">\n                    Margot Foster\n                </dd>\n            </div>\n            <div class=\"py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6\">\n                <dt class=\"text-sm font-medium text-gray-500\">\n                    Application for\n                </dt>\n                <dd class=\"mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2\">\n                    Backend Developer\n                </dd>\n            </div>\n            <div class=\"py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6\">\n                <dt class=\"text-sm font-medium text-gray-500\">\n                    Email address\n                </dt>\n                <dd class=\"mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2\">\n                    margotfoster@example.com\n                </dd>\n            </div>\n            <div class=\"py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6\">\n                <dt class=\"text-sm font-medium text-gray-500\">\n                    Salary expectation\n                </dt>\n                <dd class=\"mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2\">\n                    $120,000\n                </dd>\n            </div>\n            <div class=\"py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6\">\n                <dt class=\"text-sm font-medium text-gray-500\">\n                    About\n                </dt>\n                <dd class=\"mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2\">\n                    Fugiat ipsum ipsum deserunt culpa aute sint do nostrud anim incididunt cillum culpa consequat. Excepteur qui ipsum aliquip consequat sint. Sit id mollit nulla mollit nostrud in ea officia proident. Irure nostrud pariatur mollit ad adipisicing reprehenderit deserunt qui eu.\n                </dd>\n            </div>\n            <div class=\"py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6\">\n                <dt class=\"text-sm font-medium text-gray-500\">\n                    Attachments\n                </dt>\n                <dd class=\"mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2\">\n                    <ul class=\"border border-gray-200 rounded-md divide-y divide-gray-200\">\n                        <li class=\"pl-3 pr-4 py-3 flex items-center justify-between text-sm\">\n                            <div class=\"w-0 flex-1 flex items-center\">\n                                <!-- Heroicon name: solid/paper-clip -->\n                                <svg class=\"flex-shrink-0 h-5 w-5 text-gray-400\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\" aria-hidden=\"true\">\n                                    <path fill-rule=\"evenodd\" d=\"M8 4a3 3 0 00-3 3v4a5 5 0 0010 0V7a1 1 0 112 0v4a7 7 0 11-14 0V7a5 5 0 0110 0v4a3 3 0 11-6 0V7a1 1 0 012 0v4a1 1 0 102 0V7a3 3 0 00-3-3z\" clip-rule=\"evenodd\" />\n                                </svg>\n                                <span class=\"ml-2 flex-1 w-0 truncate\">\n                  resume_back_end_developer.pdf\n                </span>\n                            </div>\n                            <div class=\"ml-4 flex-shrink-0\">\n                                <a href=\"#\" class=\"font-medium text-indigo-600 hover:text-indigo-500\">\n                                    Download\n                                </a>\n                            </div>\n                        </li>\n                        <li class=\"pl-3 pr-4 py-3 flex items-center justify-between text-sm\">\n                            <div class=\"w-0 flex-1 flex items-center\">\n                                <!-- Heroicon name: solid/paper-clip -->\n                                <svg class=\"flex-shrink-0 h-5 w-5 text-gray-400\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\" aria-hidden=\"true\">\n                                    <path fill-rule=\"evenodd\" d=\"M8 4a3 3 0 00-3 3v4a5 5 0 0010 0V7a1 1 0 112 0v4a7 7 0 11-14 0V7a5 5 0 0110 0v4a3 3 0 11-6 0V7a1 1 0 012 0v4a1 1 0 102 0V7a3 3 0 00-3-3z\" clip-rule=\"evenodd\" />\n                                </svg>\n                                <span class=\"ml-2 flex-1 w-0 truncate\">\n                  coverletter_back_end_developer.pdf\n                </span>\n                            </div>\n                            <div class=\"ml-4 flex-shrink-0\">\n                                <a href=\"#\" class=\"font-medium text-indigo-600 hover:text-indigo-500\">\n                                    Download\n                                </a>\n                            </div>\n                        </li>\n                    </ul>\n                </dd>\n            </div>\n        </dl>\n    </div>\n</div>\n"
+        },
+        {
+            "name": "HeadingsPageComponent",
+            "id": "component-HeadingsPageComponent-cca6d3739e0057905d2580fe98fc8de8",
+            "file": "projects/sc-tailwind-demo/src/app/pages/headings-page/headings-page.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-headings-page",
+            "styleUrls": [
+                "./headings-page.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./headings-page.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 12,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-headings-page',\n  templateUrl: './headings-page.component.html',\n  styleUrls: ['./headings-page.component.scss']\n})\nexport class HeadingsPageComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./headings-page.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 8
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<!-- This example requires Tailwind CSS v2.0+ -->\n<div >\n    <h1 class=\"text-2xl font-semibold text-gray-900\">Headings</h1>\n</div>\n\n<div class=\"rounded-lg bg-white overflow-hidden shadow my-8\">\n    <h2 class=\"sr-only\" id=\"profile-overview-title\">Profile Overview</h2>\n    <div class=\"bg-white p-6\">\n        <div class=\"sm:flex sm:items-center sm:justify-between\">\n            <div class=\"sm:flex sm:space-x-5\">\n                <div class=\"flex-shrink-0\">\n                    <img class=\"mx-auto h-20 w-20 rounded-full\" src=\"https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80\" alt=\"\">\n                </div>\n                <div class=\"mt-4 text-center sm:mt-0 sm:pt-1 sm:text-left\">\n                    <p class=\"text-sm font-medium text-gray-600\">Welcome back,</p>\n                    <p class=\"text-xl font-bold text-gray-900 sm:text-2xl\">Rebecca Nicholas</p>\n                    <p class=\"text-sm font-medium text-gray-600\">Product Designer</p>\n                </div>\n            </div>\n            <div class=\"mt-5 flex justify-center sm:mt-0\">\n                <a href=\"#\" class=\"flex justify-center items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50\">\n                    View profile\n                </a>\n            </div>\n        </div>\n    </div>\n    <div class=\"border-t border-gray-200 bg-gray-50 grid grid-cols-1 divide-y divide-gray-200 sm:grid-cols-3 sm:divide-y-0 sm:divide-x\">\n        <div class=\"px-6 py-5 text-sm font-medium text-center\">\n            <span class=\"text-gray-900\">12</span>\n            <span class=\"text-gray-600\">Vacation days left</span>\n        </div>\n\n        <div class=\"px-6 py-5 text-sm font-medium text-center\">\n            <span class=\"text-gray-900\">4</span>\n            <span class=\"text-gray-600\">Sick days left</span>\n        </div>\n\n        <div class=\"px-6 py-5 text-sm font-medium text-center\">\n            <span class=\"text-gray-900\">2</span>\n            <span class=\"text-gray-600\">Personal days left</span>\n        </div>\n    </div>\n</div>\n\n\n<!--\n  This example requires Tailwind CSS v2.0+\n\n  This example requires some changes to your config:\n\n  ```\n  // tailwind.config.js\n  module.exports = {\n    // ...\n    plugins: [\n      // ...\n      require('@tailwindcss/forms'),\n    ]\n  }\n  ```\n-->\n<div class=\"relative pb-5 border-b border-gray-200 sm:pb-0 my-8 bg-white rounded-lg p-6 \">\n    <div class=\"md:flex md:items-center md:justify-between\">\n        <h3 class=\"text-lg leading-6 font-medium text-gray-900\">\n            Candidates\n        </h3>\n    </div>\n    <div class=\"mt-4\">\n        <!-- Dropdown menu on small screens -->\n        <div class=\"sm:hidden\">\n            <label for=\"current-tab\" class=\"sr-only\">Select a tab</label>\n            <select id=\"current-tab\" name=\"current-tab\" class=\"block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md\">\n                <option>Applied</option>\n\n                <option>Phone Screening</option>\n\n                <option selected>Interview</option>\n\n                <option>Offer</option>\n\n                <option>Hired</option>\n            </select>\n        </div>\n        <!-- Tabs at small breakpoint and up -->\n        <div class=\"hidden sm:block\">\n            <nav class=\"-mb-px flex space-x-8\">\n                <!-- Current: \"border-indigo-500 text-indigo-600\", Default: \"border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300\" -->\n                <a href=\"#\" class=\"border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap pb-4 px-1 border-b-2 font-medium text-sm\">\n                    Applied\n                </a>\n\n                <a href=\"#\" class=\"border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap pb-4 px-1 border-b-2 font-medium text-sm\">\n                    Phone Screening\n                </a>\n\n                <a href=\"#\" class=\"border-indigo-500 text-indigo-600 whitespace-nowrap pb-4 px-1 border-b-2 font-medium text-sm\" aria-current=\"page\">\n                    Interview\n                </a>\n\n                <a href=\"#\" class=\"border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap pb-4 px-1 border-b-2 font-medium text-sm\">\n                    Offer\n                </a>\n\n                <a href=\"#\" class=\"border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap pb-4 px-1 border-b-2 font-medium text-sm\">\n                    Hired\n                </a>\n            </nav>\n        </div>\n    </div>\n</div>\n\n\n<!-- This example requires Tailwind CSS v2.0+ -->\n<div class=\"lg:flex rounded-lg bg-white p-8\" style=\"min-height: 340px;\">\n    <div class=\"flex-1 min-w-0\">\n        <nav class=\"flex\" aria-label=\"Breadcrumb\">\n            <ol class=\"flex items-center space-x-4\" role=\"list\">\n                <li>\n                    <div>\n                        <a href=\"#\" class=\"text-sm font-medium text-gray-500 hover:text-gray-700\">Jobs</a>\n                    </div>\n                </li>\n                <li>\n                    <div class=\"flex items-center\">\n                        <!-- Heroicon name: solid/chevron-right -->\n                        <svg class=\"flex-shrink-0 h-5 w-5 text-gray-400\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\" aria-hidden=\"true\">\n                            <path fill-rule=\"evenodd\" d=\"M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z\" clip-rule=\"evenodd\" />\n                        </svg>\n                        <a href=\"#\" class=\"ml-4 text-sm font-medium text-gray-500 hover:text-gray-700\">Engineering</a>\n                    </div>\n                </li>\n            </ol>\n        </nav>\n        <h2 class=\"mt-2 text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate\">\n            Back End Developer\n        </h2>\n        <div class=\"mt-1 flex flex-col sm:flex-row sm:flex-wrap sm:mt-0 sm:space-x-6\">\n            <div class=\"mt-2 flex items-center text-sm text-gray-500\">\n                <!-- Heroicon name: solid/briefcase -->\n                <svg class=\"flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\" aria-hidden=\"true\">\n                    <path fill-rule=\"evenodd\" d=\"M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z\" clip-rule=\"evenodd\" />\n                    <path d=\"M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z\" />\n                </svg>\n                Full-time\n            </div>\n            <div class=\"mt-2 flex items-center text-sm text-gray-500\">\n                <!-- Heroicon name: solid/location-marker -->\n                <svg class=\"flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\" aria-hidden=\"true\">\n                    <path fill-rule=\"evenodd\" d=\"M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z\" clip-rule=\"evenodd\" />\n                </svg>\n                Remote\n            </div>\n            <div class=\"mt-2 flex items-center text-sm text-gray-500\">\n                <!-- Heroicon name: solid/currency-dollar -->\n                <svg class=\"flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\" aria-hidden=\"true\">\n                    <path d=\"M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z\" />\n                    <path fill-rule=\"evenodd\" d=\"M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z\" clip-rule=\"evenodd\" />\n                </svg>\n                $120k &ndash; $140k\n            </div>\n            <div class=\"mt-2 flex items-center text-sm text-gray-500\">\n                <!-- Heroicon name: solid/calendar -->\n                <svg class=\"flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\" aria-hidden=\"true\">\n                    <path fill-rule=\"evenodd\" d=\"M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z\" clip-rule=\"evenodd\" />\n                </svg>\n                Closing on January 9, 2020\n            </div>\n        </div>\n    </div>\n    <div class=\"mt-5 flex lg:mt-0 lg:ml-4\">\n    <span class=\"hidden sm:block\">\n      <button type=\"button\" class=\"inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500\">\n        <!-- Heroicon name: solid/pencil -->\n        <svg class=\"-ml-1 mr-2 h-5 w-5 text-gray-500\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\" aria-hidden=\"true\">\n          <path d=\"M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z\" />\n        </svg>\n        Edit\n      </button>\n    </span>\n\n        <span class=\"hidden sm:block ml-3\">\n      <button type=\"button\" class=\"inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500\">\n        <!-- Heroicon name: solid/link -->\n        <svg class=\"-ml-1 mr-2 h-5 w-5 text-gray-500\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\" aria-hidden=\"true\">\n          <path fill-rule=\"evenodd\" d=\"M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z\" clip-rule=\"evenodd\" />\n        </svg>\n        View\n      </button>\n    </span>\n\n        <span class=\"sm:ml-3\">\n      <button type=\"button\" class=\"inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500\">\n        <!-- Heroicon name: solid/check -->\n        <svg class=\"-ml-1 mr-2 h-5 w-5\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\" aria-hidden=\"true\">\n          <path fill-rule=\"evenodd\" d=\"M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z\" clip-rule=\"evenodd\" />\n        </svg>\n        Publish\n      </button>\n    </span>\n\n        <!-- Dropdown -->\n        <span class=\"ml-3 relative sm:hidden\">\n      <button type=\"button\" class=\"inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500\" id=\"mobile-menu-button\" aria-expanded=\"false\" aria-haspopup=\"true\">\n        More\n          <!-- Heroicon name: solid/chevron-down -->\n        <svg class=\"-mr-1 ml-2 h-5 w-5 text-gray-500\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\" aria-hidden=\"true\">\n          <path fill-rule=\"evenodd\" d=\"M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z\" clip-rule=\"evenodd\" />\n        </svg>\n      </button>\n\n            <!--\n              Dropdown menu, show/hide based on menu state.\n\n              Entering: \"transition ease-out duration-200\"\n                From: \"transform opacity-0 scale-95\"\n                To: \"transform opacity-100 scale-100\"\n              Leaving: \"transition ease-in duration-75\"\n                From: \"transform opacity-100 scale-100\"\n                To: \"transform opacity-0 scale-95\"\n            -->\n      <div class=\"origin-top-right absolute right-0 mt-2 -mr-1 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none\" role=\"menu\" aria-orientation=\"vertical\" aria-labelledby=\"mobile-menu-button\" tabindex=\"-1\">\n        <!-- Active: \"bg-gray-100\", Not Active: \"\" -->\n        <a href=\"#\" class=\"block px-4 py-2 text-sm text-gray-700\" role=\"menuitem\" tabindex=\"-1\" id=\"mobile-menu-item-0\">Edit</a>\n        <a href=\"#\" class=\"block px-4 py-2 text-sm text-gray-700\" role=\"menuitem\" tabindex=\"-1\" id=\"mobile-menu-item-1\">View</a>\n      </div>\n    </span>\n    </div>\n</div>\n\n\n"
+        },
+        {
+            "name": "ScTailwindComponent",
+            "id": "component-ScTailwindComponent-3e835c4c9297742bbe99e7a419f7e139",
+            "file": "projects/sc-tailwind/src/lib/sc-tailwind.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "lib-sc-tailwind",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<p>\n  sc-tailwind works!\n</p>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 17,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'lib-sc-tailwind',\n  template: `\n    <p>\n      sc-tailwind works!\n    </p>\n  `,\n  styles: [\n  ]\n})\nexport class ScTailwindComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 13
+            },
+            "implements": [
+                "OnInit"
+            ]
+        },
+        {
+            "name": "TablesPageComponent",
+            "id": "component-TablesPageComponent-2c95e424db42d3dc49060f2d397dd0ed",
+            "file": "projects/sc-tailwind-demo/src/app/pages/tables-page/tables-page.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-tables-page",
+            "styleUrls": [
+                "./tables-page.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./tables-page.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 12,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-tables-page',\n  templateUrl: './tables-page.component.html',\n  styleUrls: ['./tables-page.component.scss']\n})\nexport class TablesPageComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit(): void {\n  }\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./tables-page.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 8
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<div >\n    <h1 class=\"text-2xl font-semibold text-gray-900\">Tables</h1>\n</div>\n\n<!-- This example requires Tailwind CSS v2.0+ -->\n<div class=\"flex flex-col my-8\">\n    <div class=\"-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8\">\n        <div class=\"py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8\">\n            <div class=\"shadow overflow-hidden border-b border-gray-200 sm:rounded-lg\">\n                <table class=\"min-w-full divide-y divide-gray-200\">\n                    <thead class=\"bg-gray-50\">\n                    <tr>\n                        <th scope=\"col\" class=\"px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider\">\n                            Name\n                        </th>\n                        <th scope=\"col\" class=\"px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider\">\n                            Title\n                        </th>\n                        <th scope=\"col\" class=\"px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider\">\n                            Email\n                        </th>\n                        <th scope=\"col\" class=\"px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider\">\n                            Role\n                        </th>\n                        <th scope=\"col\" class=\"relative px-6 py-3\">\n                            <span class=\"sr-only\">Edit</span>\n                        </th>\n                    </tr>\n                    </thead>\n                    <tbody>\n                    <!-- Odd row -->\n                    <tr class=\"bg-white\">\n                        <td class=\"px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900\">\n                            Jane Cooper\n                        </td>\n                        <td class=\"px-6 py-4 whitespace-nowrap text-sm text-gray-500\">\n                            Regional Paradigm Technician\n                        </td>\n                        <td class=\"px-6 py-4 whitespace-nowrap text-sm text-gray-500\">\n                            jane.cooper@example.com\n                        </td>\n                        <td class=\"px-6 py-4 whitespace-nowrap text-sm text-gray-500\">\n                            Admin\n                        </td>\n                        <td class=\"px-6 py-4 whitespace-nowrap text-right text-sm font-medium\">\n                            <a href=\"#\" class=\"text-indigo-600 hover:text-indigo-900\">Edit</a>\n                        </td>\n                    </tr>\n\n                    <!-- Even row -->\n                    <tr class=\"bg-gray-50\">\n                        <td class=\"px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900\">\n                            Cody Fisher\n                        </td>\n                        <td class=\"px-6 py-4 whitespace-nowrap text-sm text-gray-500\">\n                            Product Directives Officer\n                        </td>\n                        <td class=\"px-6 py-4 whitespace-nowrap text-sm text-gray-500\">\n                            cody.fisher@example.com\n                        </td>\n                        <td class=\"px-6 py-4 whitespace-nowrap text-sm text-gray-500\">\n                            Owner\n                        </td>\n                        <td class=\"px-6 py-4 whitespace-nowrap text-right text-sm font-medium\">\n                            <a href=\"#\" class=\"text-indigo-600 hover:text-indigo-900\">Edit</a>\n                        </td>\n                    </tr>\n\n                    <!-- More people... -->\n                    </tbody>\n                </table>\n            </div>\n        </div>\n    </div>\n</div>\n\n<!-- This example requires Tailwind CSS v2.0+ -->\n<div class=\"flex flex-col my-8\">\n    <div class=\"-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8\">\n        <div class=\"py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8\">\n            <div class=\"shadow overflow-hidden border-b border-gray-200 sm:rounded-lg\">\n                <table class=\"min-w-full divide-y divide-gray-200\">\n                    <thead class=\"bg-gray-50\">\n                    <tr>\n                        <th scope=\"col\" class=\"px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider\">\n                            Name\n                        </th>\n                        <th scope=\"col\" class=\"px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider\">\n                            Title\n                        </th>\n                        <th scope=\"col\" class=\"px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider\">\n                            Status\n                        </th>\n                        <th scope=\"col\" class=\"px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider\">\n                            Role\n                        </th>\n                        <th scope=\"col\" class=\"relative px-6 py-3\">\n                            <span class=\"sr-only\">Edit</span>\n                        </th>\n                    </tr>\n                    </thead>\n                    <tbody class=\"bg-white divide-y divide-gray-200\">\n                    <tr>\n                        <td class=\"px-6 py-4 whitespace-nowrap\">\n                            <div class=\"flex items-center\">\n                                <div class=\"flex-shrink-0 h-10 w-10\">\n                                    <img class=\"h-10 w-10 rounded-full\" src=\"https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60\" alt=\"\">\n                                </div>\n                                <div class=\"ml-4\">\n                                    <div class=\"text-sm font-medium text-gray-900\">\n                                        Jane Cooper\n                                    </div>\n                                    <div class=\"text-sm text-gray-500\">\n                                        jane.cooper@example.com\n                                    </div>\n                                </div>\n                            </div>\n                        </td>\n                        <td class=\"px-6 py-4 whitespace-nowrap\">\n                            <div class=\"text-sm text-gray-900\">Regional Paradigm Technician</div>\n                            <div class=\"text-sm text-gray-500\">Optimization</div>\n                        </td>\n                        <td class=\"px-6 py-4 whitespace-nowrap\">\n                <span class=\"px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800\">\n                  Active\n                </span>\n                        </td>\n                        <td class=\"px-6 py-4 whitespace-nowrap text-sm text-gray-500\">\n                            Admin\n                        </td>\n                        <td class=\"px-6 py-4 whitespace-nowrap text-right text-sm font-medium\">\n                            <a href=\"#\" class=\"text-indigo-600 hover:text-indigo-900\">Edit</a>\n                        </td>\n                    </tr>\n\n                    <!-- More people... -->\n                    </tbody>\n                </table>\n            </div>\n        </div>\n    </div>\n</div>\n\n<!-- This example requires Tailwind CSS v2.0+ -->\n<div class=\"bg-white shadow overflow-hidden sm:rounded-md my-8\">\n    <ul class=\"divide-y divide-gray-200\">\n        <li>\n            <a href=\"#\" class=\"block hover:bg-gray-50\">\n                <div class=\"flex items-center px-4 py-4 sm:px-6\">\n                    <div class=\"min-w-0 flex-1 flex items-center\">\n                        <div class=\"flex-shrink-0\">\n                            <img class=\"h-12 w-12 rounded-full\" src=\"https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80\" alt=\"\">\n                        </div>\n                        <div class=\"min-w-0 flex-1 px-4 md:grid md:grid-cols-2 md:gap-4\">\n                            <div>\n                                <p class=\"text-sm font-medium text-indigo-600 truncate\">Ricardo Cooper</p>\n                                <p class=\"mt-2 flex items-center text-sm text-gray-500\">\n                                    <!-- Heroicon name: solid/mail -->\n                                    <svg class=\"flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\" aria-hidden=\"true\">\n                                        <path d=\"M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z\" />\n                                        <path d=\"M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z\" />\n                                    </svg>\n                                    <span class=\"truncate\">ricardo.cooper@example.com</span>\n                                </p>\n                            </div>\n                            <div class=\"hidden md:block\">\n                                <div>\n                                    <p class=\"text-sm text-gray-900\">\n                                        Applied on\n                                        <time datetime=\"2020-01-07\">January 7, 2020</time>\n                                    </p>\n                                    <p class=\"mt-2 flex items-center text-sm text-gray-500\">\n                                        <!-- Heroicon name: solid/check-circle -->\n                                        <svg class=\"flex-shrink-0 mr-1.5 h-5 w-5 text-green-400\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\" aria-hidden=\"true\">\n                                            <path fill-rule=\"evenodd\" d=\"M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z\" clip-rule=\"evenodd\" />\n                                        </svg>\n                                        Completed phone screening\n                                    </p>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                    <div>\n                        <!-- Heroicon name: solid/chevron-right -->\n                        <svg class=\"h-5 w-5 text-gray-400\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\" aria-hidden=\"true\">\n                            <path fill-rule=\"evenodd\" d=\"M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z\" clip-rule=\"evenodd\" />\n                        </svg>\n                    </div>\n                </div>\n            </a>\n        </li>\n\n        <li>\n            <a href=\"#\" class=\"block hover:bg-gray-50\">\n                <div class=\"flex items-center px-4 py-4 sm:px-6\">\n                    <div class=\"min-w-0 flex-1 flex items-center\">\n                        <div class=\"flex-shrink-0\">\n                            <img class=\"h-12 w-12 rounded-full\" src=\"https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80\" alt=\"\">\n                        </div>\n                        <div class=\"min-w-0 flex-1 px-4 md:grid md:grid-cols-2 md:gap-4\">\n                            <div>\n                                <p class=\"text-sm font-medium text-indigo-600 truncate\">Kristen Ramos</p>\n                                <p class=\"mt-2 flex items-center text-sm text-gray-500\">\n                                    <!-- Heroicon name: solid/mail -->\n                                    <svg class=\"flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\" aria-hidden=\"true\">\n                                        <path d=\"M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z\" />\n                                        <path d=\"M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z\" />\n                                    </svg>\n                                    <span class=\"truncate\">kristen.ramos@example.com</span>\n                                </p>\n                            </div>\n                            <div class=\"hidden md:block\">\n                                <div>\n                                    <p class=\"text-sm text-gray-900\">\n                                        Applied on\n                                        <time datetime=\"2020-01-07\">January 7, 2020</time>\n                                    </p>\n                                    <p class=\"mt-2 flex items-center text-sm text-gray-500\">\n                                        <!-- Heroicon name: solid/check-circle -->\n                                        <svg class=\"flex-shrink-0 mr-1.5 h-5 w-5 text-green-400\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\" aria-hidden=\"true\">\n                                            <path fill-rule=\"evenodd\" d=\"M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z\" clip-rule=\"evenodd\" />\n                                        </svg>\n                                        Completed phone screening\n                                    </p>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                    <div>\n                        <!-- Heroicon name: solid/chevron-right -->\n                        <svg class=\"h-5 w-5 text-gray-400\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\" aria-hidden=\"true\">\n                            <path fill-rule=\"evenodd\" d=\"M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z\" clip-rule=\"evenodd\" />\n                        </svg>\n                    </div>\n                </div>\n            </a>\n        </li>\n\n        <li>\n            <a href=\"#\" class=\"block hover:bg-gray-50\">\n                <div class=\"flex items-center px-4 py-4 sm:px-6\">\n                    <div class=\"min-w-0 flex-1 flex items-center\">\n                        <div class=\"flex-shrink-0\">\n                            <img class=\"h-12 w-12 rounded-full\" src=\"https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80\" alt=\"\">\n                        </div>\n                        <div class=\"min-w-0 flex-1 px-4 md:grid md:grid-cols-2 md:gap-4\">\n                            <div>\n                                <p class=\"text-sm font-medium text-indigo-600 truncate\">Ted Fox</p>\n                                <p class=\"mt-2 flex items-center text-sm text-gray-500\">\n                                    <!-- Heroicon name: solid/mail -->\n                                    <svg class=\"flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\" aria-hidden=\"true\">\n                                        <path d=\"M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z\" />\n                                        <path d=\"M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z\" />\n                                    </svg>\n                                    <span class=\"truncate\">ted.fox@example.com</span>\n                                </p>\n                            </div>\n                            <div class=\"hidden md:block\">\n                                <div>\n                                    <p class=\"text-sm text-gray-900\">\n                                        Applied on\n                                        <time datetime=\"2020-01-07\">January 7, 2020</time>\n                                    </p>\n                                    <p class=\"mt-2 flex items-center text-sm text-gray-500\">\n                                        <!-- Heroicon name: solid/check-circle -->\n                                        <svg class=\"flex-shrink-0 mr-1.5 h-5 w-5 text-green-400\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\" aria-hidden=\"true\">\n                                            <path fill-rule=\"evenodd\" d=\"M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z\" clip-rule=\"evenodd\" />\n                                        </svg>\n                                        Completed phone screening\n                                    </p>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                    <div>\n                        <!-- Heroicon name: solid/chevron-right -->\n                        <svg class=\"h-5 w-5 text-gray-400\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\" aria-hidden=\"true\">\n                            <path fill-rule=\"evenodd\" d=\"M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z\" clip-rule=\"evenodd\" />\n                        </svg>\n                    </div>\n                </div>\n            </a>\n        </li>\n    </ul>\n</div>\n"
+        }
+    ],
+    "modules": [
+        {
+            "name": "AppModule",
+            "id": "module-AppModule-5dc287c2b4e1852538fa765850cbde5c",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/sc-tailwind-demo/src/app/app.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { BrowserModule } from '@angular/platform-browser';\n\nimport { AppRoutingModule } from './app-routing.module';\nimport { AppComponent } from './app.component';\nimport { CardsPageComponent } from \"./pages/cards-page/cards-page.component\";\nimport { TablesPageComponent } from \"./pages/tables-page/tables-page.component\";\nimport { DataDisplayPageComponent } from \"./pages/data-display-page/data-display-page.component\";\nimport { HeadingsPageComponent } from \"./pages/headings-page/headings-page.component\";\nimport { ScTailwindModule } from \"../../../sc-tailwind/src/lib/sc-tailwind.module\";\n\n@NgModule({\n  declarations: [\n    AppComponent,\n    CardsPageComponent,\n    TablesPageComponent,\n    DataDisplayPageComponent,\n    HeadingsPageComponent\n  ],\n  imports: [\n    BrowserModule,\n    AppRoutingModule,\n    ScTailwindModule\n  ],\n  providers: [],\n  bootstrap: [AppComponent]\n})\nexport class AppModule { }\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "AppComponent"
+                        },
+                        {
+                            "name": "CardsPageComponent"
+                        },
+                        {
+                            "name": "DataDisplayPageComponent"
+                        },
+                        {
+                            "name": "HeadingsPageComponent"
+                        },
+                        {
+                            "name": "TablesPageComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "AppRoutingModule"
+                        },
+                        {
+                            "name": "ScTailwindModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": [
+                        {
+                            "name": "AppComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "AppRoutingModule",
+            "id": "module-AppRoutingModule-27eb14845d3b2da090b76adfa6a1d710",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/sc-tailwind-demo/src/app/app-routing.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { RouterModule, Routes } from '@angular/router';\nimport { AppComponent } from \"./app.component\";\nimport { HeadingsPageComponent } from \"./pages/headings-page/headings-page.component\";\nimport { CardsPageComponent } from \"./pages/cards-page/cards-page.component\";\nimport { DataDisplayPageComponent } from \"./pages/data-display-page/data-display-page.component\";\nimport { TablesPageComponent } from \"./pages/tables-page/tables-page.component\";\n\nconst routes: Routes = [\n  { path: '', redirectTo: '/headings', pathMatch: 'full' },\n  {\n    path: '',\n    children: [\n      {\n        path: 'headings',\n        component: HeadingsPageComponent\n      },\n      {\n        path: 'cards',\n        component: CardsPageComponent\n      },\n      {\n        path: 'data-display',\n        component: DataDisplayPageComponent\n      },\n      {\n        path: 'tables',\n        component: TablesPageComponent\n      }\n    ]\n  }\n];\n\n@NgModule({\n  imports: [RouterModule.forRoot(routes)],\n  exports: [RouterModule]\n})\nexport class AppRoutingModule { }\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": []
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "ScTailwindModule",
+            "id": "module-ScTailwindModule-f6087e931555dae77fad1d2445c3d705",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "projects/sc-tailwind/src/lib/sc-tailwind.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { ScTailwindComponent } from './sc-tailwind.component';\nimport { ScTwDropdown } from './directives/menu-dropdown/sc-tw-dropdown.directive';\nimport { ScTwDropdownButtonDirective } from './directives/menu-dropdown/sc-tw-dropdown-button.directive';\nimport { ScTwDropdownContentDirective } from './directives/menu-dropdown/sc-tw-dropdown-content.directive';\n\n\n\n@NgModule({\n  declarations: [\n    ScTailwindComponent,\n    ScTwDropdown,\n    ScTwDropdownButtonDirective,\n    ScTwDropdownContentDirective\n  ],\n  imports: [\n  ],\n  exports: [\n    ScTwDropdown,\n    ScTwDropdownButtonDirective,\n    ScTwDropdownContentDirective\n  ]\n})\nexport class ScTailwindModule { }\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "ScTailwindComponent"
+                        },
+                        {
+                            "name": "ScTwDropdown"
+                        },
+                        {
+                            "name": "ScTwDropdownButtonDirective"
+                        },
+                        {
+                            "name": "ScTwDropdownContentDirective"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "ScTwDropdown"
+                        },
+                        {
+                            "name": "ScTwDropdownButtonDirective"
+                        },
+                        {
+                            "name": "ScTwDropdownContentDirective"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        }
+    ],
+    "miscellaneous": {
+        "variables": [
+            {
+                "name": "context",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/sc-tailwind-demo/src/test.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
+            },
+            {
+                "name": "context",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/sc-tailwind/src/test.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
+            },
+            {
+                "name": "environment",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/sc-tailwind-demo/src/environments/environment.prod.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\n  production: true\n}"
+            },
+            {
+                "name": "environment",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/sc-tailwind-demo/src/environments/environment.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\n  production: false\n}"
+            },
+            {
+                "name": "Large",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/components/buttons/buttons.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Primary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/components/buttons/buttons.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "require",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/sc-tailwind-demo/src/test.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "literal type"
+            },
+            {
+                "name": "require",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/sc-tailwind/src/test.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "literal type"
+            },
+            {
+                "name": "Secondary",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/components/buttons/buttons.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Small",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/components/buttons/buttons.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/components/buttons/buttons.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<ButtonComponent>",
+                "defaultValue": "(args: ButtonComponent) => ({\n  props: args,\n})"
+            }
+        ],
+        "functions": [],
+        "typealiases": [],
+        "enumerations": [],
+        "groupedVariables": {
+            "projects/sc-tailwind-demo/src/test.ts": [
+                {
+                    "name": "context",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/sc-tailwind-demo/src/test.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
+                },
+                {
+                    "name": "require",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/sc-tailwind-demo/src/test.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "literal type"
+                }
+            ],
+            "projects/sc-tailwind/src/test.ts": [
+                {
+                    "name": "context",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/sc-tailwind/src/test.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
+                },
+                {
+                    "name": "require",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/sc-tailwind/src/test.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "literal type"
+                }
+            ],
+            "projects/sc-tailwind-demo/src/environments/environment.prod.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/sc-tailwind-demo/src/environments/environment.prod.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n  production: true\n}"
+                }
+            ],
+            "projects/sc-tailwind-demo/src/environments/environment.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/sc-tailwind-demo/src/environments/environment.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n  production: false\n}"
+                }
+            ],
+            "stories/components/buttons/buttons.stories.ts": [
+                {
+                    "name": "Large",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/components/buttons/buttons.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Primary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/components/buttons/buttons.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Secondary",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/components/buttons/buttons.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Small",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/components/buttons/buttons.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/components/buttons/buttons.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<ButtonComponent>",
+                    "defaultValue": "(args: ButtonComponent) => ({\n  props: args,\n})"
+                }
+            ]
+        },
+        "groupedFunctions": {},
+        "groupedEnumerations": {},
+        "groupedTypeAliases": {}
+    },
+    "routes": {
+        "name": "<root>",
+        "kind": "module",
+        "className": "AppModule",
+        "children": [
+            {
+                "name": "routes",
+                "filename": "projects/sc-tailwind-demo/src/app/app-routing.module.ts",
+                "module": "AppRoutingModule",
+                "children": [
+                    {
+                        "path": "",
+                        "redirectTo": "/headings",
+                        "pathMatch": "full"
+                    },
+                    {
+                        "path": "",
+                        "children": [
+                            {
+                                "path": "headings",
+                                "component": "HeadingsPageComponent"
+                            },
+                            {
+                                "path": "cards",
+                                "component": "CardsPageComponent"
+                            },
+                            {
+                                "path": "data-display",
+                                "component": "DataDisplayPageComponent"
+                            },
+                            {
+                                "path": "tables",
+                                "component": "TablesPageComponent"
+                            }
+                        ]
+                    }
+                ],
+                "kind": "module"
+            }
+        ]
+    },
+    "coverage": {
+        "count": 3,
+        "status": "low",
+        "files": [
+            {
+                "filePath": "projects/sc-tailwind-demo/src/app/app.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "AppComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/sc-tailwind-demo/src/app/pages/cards-page/cards-page.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "CardsPageComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/sc-tailwind-demo/src/app/pages/data-display-page/data-display-page.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "DataDisplayPageComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/sc-tailwind-demo/src/app/pages/headings-page/headings-page.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "HeadingsPageComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/sc-tailwind-demo/src/app/pages/tables-page/tables-page.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "TablesPageComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/sc-tailwind-demo/src/environments/environment.prod.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "environment",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/sc-tailwind-demo/src/environments/environment.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "environment",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/sc-tailwind-demo/src/test.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "context",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/sc-tailwind-demo/src/test.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "require",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/sc-tailwind/src/lib/directives/menu-dropdown/sc-tw-dropdown-button.directive.ts",
+                "type": "directive",
+                "linktype": "directive",
+                "name": "ScTwDropdownButtonDirective",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/sc-tailwind/src/lib/directives/menu-dropdown/sc-tw-dropdown-content.directive.ts",
+                "type": "directive",
+                "linktype": "directive",
+                "name": "ScTwDropdownContentDirective",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/sc-tailwind/src/lib/directives/menu-dropdown/sc-tw-dropdown.directive.ts",
+                "type": "directive",
+                "linktype": "directive",
+                "name": "ScTwDropdown",
+                "coveragePercent": 0,
+                "coverageCount": "0/7",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/sc-tailwind/src/lib/sc-tailwind.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ScTailwindComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/sc-tailwind/src/lib/sc-tailwind.service.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "ScTailwindService",
+                "coveragePercent": 0,
+                "coverageCount": "0/2",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/sc-tailwind/src/test.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "context",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/sc-tailwind/src/test.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "require",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/components/buttons/buttons.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ButtonComponent",
+                "coveragePercent": 83,
+                "coverageCount": "5/6",
+                "status": "very-good"
+            },
+            {
+                "filePath": "stories/components/buttons/buttons.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Large",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/components/buttons/buttons.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Primary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/components/buttons/buttons.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Secondary",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/components/buttons/buttons.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Small",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/components/buttons/buttons.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            }
+        ]
+    }
+}
