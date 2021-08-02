@@ -12,6 +12,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
+            "tsConfig": "projects/sc-tailwind/tsconfig.lib.json",
             "project": "projects/sc-tailwind/ng-package.json"
           },
           "configurations": {
@@ -139,5 +140,5 @@
       }
     }
   },
-  "defaultProject": "sc-tailwind-demo"
+  "defaultProject": "sc-tailwind"
 }
