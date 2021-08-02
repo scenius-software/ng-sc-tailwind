@@ -21,10 +21,11 @@ jobs:
           npm ci
           npm run build-library-prod
 
-      - name: Deploy Github Pages
-        env:
-          GH_TOKEN: ${{ github.actor }}:${{ secrets.GH_TOKEN }}
-          CI: true
+      - name: Build Github Pages
         run: |
           npm run predeploy-storybook
-          npm run deploy-storybook-ci
+
+      - name: Publish GitHub Pages
+        env:
+            github_token: ${{ secrets.GITHUB_TOKEN }}
+            publish_dir: ./.out

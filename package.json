@@ -13,7 +13,7 @@
     "storybook": "npm run docs:json && start-storybook -p 6006",
     "predeploy-storybook": "npm run docs:json && build-storybook -s storybook-static -o ./.out",
     "deploy-storybook": "storybook-to-ghpages -- --out=.out",
-    "deploy-storybook-ci": "storybook-to-ghpages -- --out=.out --ci",
+    "deploy-storybook-ci": "gh-pages -d ./.out",
     "build-storybook": "npm run docs:json && build-storybook"
   },
   "private": true,
@@ -46,7 +46,6 @@
     "@storybook/angular": "^6.3.4",
     "@storybook/builder-webpack5": "^6.3.4",
     "@storybook/manager-webpack5": "^6.3.4",
-    "@storybook/storybook-deployer": "^2.8.10",
     "css-loader": "^6.2.0",
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.11.1",
@@ -58,6 +57,7 @@
     "karma-coverage": "~2.0.3",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
+    "gh-pages": "^3.2.3",
     "ng-packagr": "^12.0.0",
     "typescript": "~4.2.3"
   }
