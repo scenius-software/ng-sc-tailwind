@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve --project sc-tailwind-demo",
     "build": "ng build",
+    "build-library-prod": "ng build --project=sc-tailwind --configuration=production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "docs:json": "compodoc -p ./tsconfig.json -e json -d .",

@@ -29,14 +29,14 @@
     "classes": [],
     "directives": [
         {
-            "name": "ScTwDropdown",
-            "id": "directive-ScTwDropdown-ec9d79e8eb9ee34b551f7bf0b70c7406",
-            "file": "projects/sc-tailwind/src/lib/directives/menu-dropdown/sc-tw-dropdown.directive.ts",
+            "name": "ScTwDropdownButtonDirective",
+            "id": "directive-ScTwDropdownButtonDirective-8e36e23a34d7a84c48d97e47d19dcce6",
+            "file": "projects/sc-tailwind/src/lib/directives/menu-dropdown/sc-tw-dropdown-button.directive.ts",
             "type": "directive",
             "description": "",
             "rawdescription": "\n",
-            "sourceCode": "import { ContentChild, Directive, ElementRef, HostListener, Renderer2, ViewChild } from '@angular/core';\nimport { ScTwDropdownButtonDirective } from \"./sc-tw-dropdown-button.directive\";\nimport { ScTwDropdownContentDirective } from \"./sc-tw-dropdown-content.directive\";\n\n@Directive({\n  selector: '[sc-tw-dropdown]'\n})\nexport class ScTwDropdown {\n  @ContentChild(ScTwDropdownButtonDirective) buttonChild!: ScTwDropdownButtonDirective;\n  @ContentChild(ScTwDropdownContentDirective, { read: ElementRef }) contentChild!: ScTwDropdownContentDirective;\n\n  private showContent = false;\n\n  constructor(private renderer: Renderer2) {\n  }\n\n  @HostListener('click') onClick() {\n    this.showContent = !this.showContent;\n    if (this.contentChild) {\n      if (this.showContent) {\n        // @ts-ignore\n        this.renderer.removeClass(this.contentChild.nativeElement, 'hidden');\n      } else {\n        // @ts-ignore\n        this.renderer.addClass(this.contentChild.nativeElement, 'hidden');\n      }\n    }\n  }\n}\n",
-            "selector": "[sc-tw-dropdown]",
+            "sourceCode": "import { Directive, HostListener, OnDestroy } from '@angular/core';\nimport { Subject } from \"rxjs\";\n\n@Directive({\n  selector: '[sc-tw-dropdown-button]'\n})\nexport class ScTwDropdownButtonDirective implements OnDestroy {\n  $clicked = new Subject<boolean>();\n\n  constructor() { }\n\n  @HostListener('click') onClick() {\n    this.$clicked.next();\n  }\n\n  ngOnDestroy(): void {\n    this.$clicked.complete();\n  }\n}\n",
+            "selector": "[sc-tw-dropdown-button]",
             "providers": [],
             "inputsClass": [],
             "outputsClass": [],
@@ -50,62 +50,39 @@
                     "argsDecorator": [],
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 17
+                    "line": 12
                 }
             ],
             "propertiesClass": [
                 {
-                    "name": "buttonChild",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "ScTwDropdownButtonDirective",
-                    "optional": false,
-                    "description": "",
-                    "line": 9,
-                    "decorators": [
-                        {
-                            "name": "ContentChild",
-                            "stringifiedArguments": "ScTwDropdownButtonDirective"
-                        }
-                    ]
-                },
-                {
-                    "name": "contentChild",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "ScTwDropdownContentDirective",
-                    "optional": false,
-                    "description": "",
-                    "line": 10,
-                    "decorators": [
-                        {
-                            "name": "ContentChild",
-                            "stringifiedArguments": "ScTwDropdownContentDirective, {read: ElementRef}"
-                        }
-                    ]
-                },
-                {
-                    "name": "showContent",
-                    "defaultValue": "false",
+                    "name": "$clicked",
+                    "defaultValue": "new Subject<boolean>()",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 12,
-                    "modifierKind": [
-                        120
-                    ]
+                    "line": 8
                 }
             ],
             "methodsClass": [
+                {
+                    "name": "ngOnDestroy",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 16,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
                 {
                     "name": "onClick",
                     "args": [],
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 17,
+                    "line": 12,
                     "deprecated": false,
                     "deprecationMessage": "",
                     "decorators": [
@@ -116,68 +93,26 @@
                     ]
                 }
             ],
-            "constructorObj": {
-                "name": "constructor",
-                "description": "",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "args": [
-                    {
-                        "name": "renderer",
-                        "type": "Renderer2",
-                        "deprecated": false,
-                        "deprecationMessage": ""
-                    }
-                ],
-                "line": 12,
-                "jsdoctags": [
-                    {
-                        "name": "renderer",
-                        "type": "Renderer2",
-                        "deprecated": false,
-                        "deprecationMessage": "",
-                        "tagName": {
-                            "text": "param"
-                        }
-                    }
-                ]
-            }
-        },
-        {
-            "name": "ScTwDropdownButtonDirective",
-            "id": "directive-ScTwDropdownButtonDirective-2b4c248eacaf74374ccb1b82fb4c2bba",
-            "file": "projects/sc-tailwind/src/lib/directives/menu-dropdown/sc-tw-dropdown-button.directive.ts",
-            "type": "directive",
-            "description": "",
-            "rawdescription": "\n",
-            "sourceCode": "import { Directive } from '@angular/core';\n\n@Directive({\n  selector: '[sc-tw-dropdown-button]'\n})\nexport class ScTwDropdownButtonDirective {\n\n  constructor() { }\n\n}\n",
-            "selector": "[sc-tw-dropdown-button]",
-            "providers": [],
-            "inputsClass": [],
-            "outputsClass": [],
-            "deprecated": false,
-            "deprecationMessage": "",
-            "hostBindings": [],
-            "hostListeners": [],
-            "propertiesClass": [],
-            "methodsClass": [],
+            "implements": [
+                "OnDestroy"
+            ],
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "args": [],
-                "line": 6
+                "line": 8
             }
         },
         {
             "name": "ScTwDropdownContentDirective",
-            "id": "directive-ScTwDropdownContentDirective-6d51a66a08e6b51328561b21343e38c0",
+            "id": "directive-ScTwDropdownContentDirective-b068915c116c0a1942041236267c7a98",
             "file": "projects/sc-tailwind/src/lib/directives/menu-dropdown/sc-tw-dropdown-content.directive.ts",
             "type": "directive",
             "description": "",
             "rawdescription": "\n",
-            "sourceCode": "import { Directive } from '@angular/core';\n\n@Directive({\n  selector: '[sc-tw-dropdown-content]'\n})\nexport class ScTwDropdownContentDirective {\n\n  constructor() { }\n\n}\n",
+            "sourceCode": "import { Directive, Input, OnInit } from '@angular/core';\nimport { Subject } from \"rxjs\";\n\n@Directive({\n  selector: '[sc-tw-dropdown-content]'\n})\nexport class ScTwDropdownContentDirective {\n  constructor() { }\n}\n",
             "selector": "[sc-tw-dropdown-content]",
             "providers": [],
             "inputsClass": [],
@@ -194,7 +129,7 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "args": [],
-                "line": 6
+                "line": 7
             }
         }
     ],
@@ -252,7 +187,7 @@
         },
         {
             "name": "ButtonComponent",
-            "id": "component-ButtonComponent-a33d7a1f4327aac139cee904630657ad",
+            "id": "component-ButtonComponent-d107623648a63b7669b2f97c1f4eb89d",
             "file": "stories/components/buttons/buttons.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -262,9 +197,8 @@
             "selector": "storybook-button",
             "styleUrls": [],
             "styles": [],
-            "templateUrl": [
-                "buttons.component.html"
-            ],
+            "template": "<ng-container *ngIf=\"primary\">\n  <button type=\"button\" class=\"inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500\">\n    Button text\n  </button>\n</ng-container>\n<ng-container *ngIf=\"!primary\">\n  <button type=\"button\" class=\"inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded text-indigo-700 bg-indigo-100 hover:bg-indigo-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500\">\n    Henlo World\n  </button>\n</ng-container>\n",
+            "templateUrl": [],
             "viewProviders": [],
             "inputsClass": [
                 {
@@ -273,7 +207,7 @@
                     "deprecationMessage": "",
                     "rawdescription": "What background color to use",
                     "description": "<p>What background color to use</p>\n",
-                    "line": 19,
+                    "line": 30,
                     "type": "string"
                 },
                 {
@@ -283,15 +217,15 @@
                     "deprecationMessage": "",
                     "jsdoctags": [
                         {
-                            "pos": 565,
-                            "end": 578,
+                            "pos": 1239,
+                            "end": 1252,
                             "flags": 4227072,
                             "modifierFlagsCache": 0,
                             "transformFlags": 0,
                             "kind": 317,
                             "tagName": {
-                                "pos": 566,
-                                "end": 574,
+                                "pos": 1240,
+                                "end": 1248,
                                 "flags": 4227072,
                                 "modifierFlagsCache": 0,
                                 "transformFlags": 0,
@@ -303,7 +237,7 @@
                     ],
                     "rawdescription": "Button contents",
                     "description": "<p>Button contents</p>\n",
-                    "line": 33,
+                    "line": 44,
                     "type": "string"
                 },
                 {
@@ -313,7 +247,7 @@
                     "deprecationMessage": "",
                     "rawdescription": "Is this the principal call to action on the page?",
                     "description": "<p>Is this the principal call to action on the page?</p>\n",
-                    "line": 13,
+                    "line": 24,
                     "type": "boolean"
                 },
                 {
@@ -323,7 +257,7 @@
                     "deprecationMessage": "",
                     "rawdescription": "How large should the button be?",
                     "description": "<p>How large should the button be?</p>\n",
-                    "line": 25,
+                    "line": 36,
                     "type": "\"small\" | \"medium\" | \"large\""
                 }
             ],
@@ -335,7 +269,7 @@
                     "deprecationMessage": "",
                     "rawdescription": "\n\nOptional click handler\n",
                     "description": "<p>Optional click handler</p>\n",
-                    "line": 39,
+                    "line": 50,
                     "type": "EventEmitter"
                 }
             ],
@@ -348,7 +282,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\n\n@Component({\n  selector: 'storybook-button',\n  templateUrl: 'buttons.component.html'\n  // styleUrls: ['./button.css'],\n})\nexport default class ButtonComponent {\n  /**\n   * Is this the principal call to action on the page?\n   */\n  @Input()\n  primary = false;\n\n  /**\n   * What background color to use\n   */\n  @Input()\n  backgroundColor?: string;\n\n  /**\n   * How large should the button be?\n   */\n  @Input()\n  size: 'small' | 'medium' | 'large' = 'medium';\n\n  /**\n   * Button contents\n   *\n   * @required\n   */\n  @Input()\n  label = 'Button';\n\n  /**\n   * Optional click handler\n   */\n  @Output()\n  onClick = new EventEmitter<Event>();\n\n  public get classes(): string[] {\n    const mode = this.primary ? 'storybook-button--primary' : 'storybook-button--secondary';\n\n    return ['storybook-button', `storybook-button--${this.size}`, mode];\n  }\n}\n",
+            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\n\n@Component({\n  selector: 'storybook-button',\n  template: `\n    <ng-container *ngIf=\"primary\">\n      <button type=\"button\" class=\"inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500\">\n        Button text\n      </button>\n    </ng-container>\n    <ng-container *ngIf=\"!primary\">\n      <button type=\"button\" class=\"inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded text-indigo-700 bg-indigo-100 hover:bg-indigo-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500\">\n        Henlo World\n      </button>\n    </ng-container>\n  `\n  // styleUrls: ['./button.css'],\n})\nexport default class ButtonComponent {\n  /**\n   * Is this the principal call to action on the page?\n   */\n  @Input()\n  primary = false;\n\n  /**\n   * What background color to use\n   */\n  @Input()\n  backgroundColor?: string;\n\n  /**\n   * How large should the button be?\n   */\n  @Input()\n  size: 'small' | 'medium' | 'large' = 'medium';\n\n  /**\n   * Button contents\n   *\n   * @required\n   */\n  @Input()\n  label = 'Button';\n\n  /**\n   * Optional click handler\n   */\n  @Output()\n  onClick = new EventEmitter<Event>();\n\n  public get classes(): string[] {\n    const mode = this.primary ? 'storybook-button--primary' : 'storybook-button--secondary';\n\n    return ['storybook-button', `storybook-button--${this.size}`, mode];\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -359,11 +293,10 @@
                         "name": "classes",
                         "type": "[]",
                         "returnType": "string[]",
-                        "line": 41
+                        "line": 52
                     }
                 }
-            },
-            "templateData": "<button type=\"button\" class=\"inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500\">\r\n  Button text\r\n</button>\r\n"
+            }
         },
         {
             "name": "CardsPageComponent",
@@ -490,6 +423,37 @@
             "templateData": "<div >\n    <h1 class=\"text-2xl font-semibold text-gray-900\">Data Display</h1>\n</div>\n\n<!-- This example requires Tailwind CSS v2.0+ -->\n<div class=\"my-8 rounded-lg\">\n    <dl class=\"mt-5 grid grid-cols-1 rounded-lg bg-white overflow-hidden shadow divide-y divide-gray-200 md:grid-cols-3 md:divide-y-0 md:divide-x\">\n        <div class=\"px-4 py-5 sm:p-6\">\n            <dt class=\"text-base font-normal text-gray-900\">\n                Total Subscribers\n            </dt>\n            <dd class=\"mt-1 flex justify-between items-baseline md:block lg:flex\">\n                <div class=\"flex items-baseline text-2xl font-semibold text-indigo-600\">\n                    71,897\n                    <span class=\"ml-2 text-sm font-medium text-gray-500\">\n            from 70,946\n          </span>\n                </div>\n\n                <div class=\"inline-flex items-baseline px-2.5 py-0.5 rounded-full text-sm font-medium bg-green-100 text-green-800 md:mt-2 lg:mt-0\">\n                    <!-- Heroicon name: solid/arrow-sm-up -->\n                    <svg class=\"-ml-1 mr-0.5 flex-shrink-0 self-center h-5 w-5 text-green-500\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\" aria-hidden=\"true\">\n                        <path fill-rule=\"evenodd\" d=\"M5.293 9.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 7.414V15a1 1 0 11-2 0V7.414L6.707 9.707a1 1 0 01-1.414 0z\" clip-rule=\"evenodd\" />\n                    </svg>\n                    <span class=\"sr-only\">\n            Increased by\n          </span>\n                    12%\n                </div>\n            </dd>\n        </div>\n\n        <div class=\"px-4 py-5 sm:p-6\">\n            <dt class=\"text-base font-normal text-gray-900\">\n                Avg. Open Rate\n            </dt>\n            <dd class=\"mt-1 flex justify-between items-baseline md:block lg:flex\">\n                <div class=\"flex items-baseline text-2xl font-semibold text-indigo-600\">\n                    58.16%\n                    <span class=\"ml-2 text-sm font-medium text-gray-500\">\n            from 56.14%\n          </span>\n                </div>\n\n                <div class=\"inline-flex items-baseline px-2.5 py-0.5 rounded-full text-sm font-medium bg-green-100 text-green-800 md:mt-2 lg:mt-0\">\n                    <!-- Heroicon name: solid/arrow-sm-up -->\n                    <svg class=\"-ml-1 mr-0.5 flex-shrink-0 self-center h-5 w-5 text-green-500\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\" aria-hidden=\"true\">\n                        <path fill-rule=\"evenodd\" d=\"M5.293 9.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 7.414V15a1 1 0 11-2 0V7.414L6.707 9.707a1 1 0 01-1.414 0z\" clip-rule=\"evenodd\" />\n                    </svg>\n                    <span class=\"sr-only\">\n            Increased by\n          </span>\n                    2.02%\n                </div>\n            </dd>\n        </div>\n\n        <div class=\"px-4 py-5 sm:p-6\">\n            <dt class=\"text-base font-normal text-gray-900\">\n                Avg. Click Rate\n            </dt>\n            <dd class=\"mt-1 flex justify-between items-baseline md:block lg:flex\">\n                <div class=\"flex items-baseline text-2xl font-semibold text-indigo-600\">\n                    24.57%\n                    <span class=\"ml-2 text-sm font-medium text-gray-500\">\n            from 28.62%\n          </span>\n                </div>\n\n                <div class=\"inline-flex items-baseline px-2.5 py-0.5 rounded-full text-sm font-medium bg-red-100 text-red-800 md:mt-2 lg:mt-0\">\n                    <!-- Heroicon name: solid/arrow-sm-down -->\n                    <svg class=\"-ml-1 mr-0.5 flex-shrink-0 self-center h-5 w-5 text-red-500\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\" aria-hidden=\"true\">\n                        <path fill-rule=\"evenodd\" d=\"M14.707 10.293a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 111.414-1.414L9 12.586V5a1 1 0 012 0v7.586l2.293-2.293a1 1 0 011.414 0z\" clip-rule=\"evenodd\" />\n                    </svg>\n                    <span class=\"sr-only\">\n            Decreased by\n          </span>\n                    4.05%\n                </div>\n            </dd>\n        </div>\n    </dl>\n</div>\n\n\n<!-- This example requires Tailwind CSS v2.0+ -->\n<div class=\"rounded-lg my-8\">\n    <dl class=\"mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3\">\n        <div class=\"relative bg-white pt-5 px-4 pb-12 sm:pt-6 sm:px-6 shadow rounded-lg overflow-hidden\">\n            <dt>\n                <div class=\"absolute bg-indigo-500 rounded-md p-3\">\n                    <!-- Heroicon name: outline/users -->\n                    <svg class=\"h-6 w-6 text-white\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\" aria-hidden=\"true\">\n                        <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z\" />\n                    </svg>\n                </div>\n                <p class=\"ml-16 text-sm font-medium text-gray-500 truncate\">Total Subscribers</p>\n            </dt>\n            <dd class=\"ml-16 pb-6 flex items-baseline sm:pb-7\">\n                <p class=\"text-2xl font-semibold text-gray-900\">\n                    71,897\n                </p>\n                <p class=\"ml-2 flex items-baseline text-sm font-semibold text-green-600\">\n                    <!-- Heroicon name: solid/arrow-sm-up -->\n                    <svg class=\"self-center flex-shrink-0 h-5 w-5 text-green-500\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\" aria-hidden=\"true\">\n                        <path fill-rule=\"evenodd\" d=\"M5.293 9.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 7.414V15a1 1 0 11-2 0V7.414L6.707 9.707a1 1 0 01-1.414 0z\" clip-rule=\"evenodd\" />\n                    </svg>\n                    <span class=\"sr-only\">\n            Increased by\n          </span>\n                    122\n                </p>\n                <div class=\"absolute bottom-0 inset-x-0 bg-gray-50 px-4 py-4 sm:px-6\">\n                    <div class=\"text-sm\">\n                        <a href=\"#\" class=\"font-medium text-indigo-600 hover:text-indigo-500\"> View all<span class=\"sr-only\"> Total Subscribers stats</span></a>\n                    </div>\n                </div>\n            </dd>\n        </div>\n\n        <div class=\"relative bg-white pt-5 px-4 pb-12 sm:pt-6 sm:px-6 shadow rounded-lg overflow-hidden\">\n            <dt>\n                <div class=\"absolute bg-indigo-500 rounded-md p-3\">\n                    <!-- Heroicon name: outline/mail-open -->\n                    <svg class=\"h-6 w-6 text-white\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\" aria-hidden=\"true\">\n                        <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M3 19v-8.93a2 2 0 01.89-1.664l7-4.666a2 2 0 012.22 0l7 4.666A2 2 0 0121 10.07V19M3 19a2 2 0 002 2h14a2 2 0 002-2M3 19l6.75-4.5M21 19l-6.75-4.5M3 10l6.75 4.5M21 10l-6.75 4.5m0 0l-1.14.76a2 2 0 01-2.22 0l-1.14-.76\" />\n                    </svg>\n                </div>\n                <p class=\"ml-16 text-sm font-medium text-gray-500 truncate\">Avg. Open Rate</p>\n            </dt>\n            <dd class=\"ml-16 pb-6 flex items-baseline sm:pb-7\">\n                <p class=\"text-2xl font-semibold text-gray-900\">\n                    58.16%\n                </p>\n                <p class=\"ml-2 flex items-baseline text-sm font-semibold text-green-600\">\n                    <!-- Heroicon name: solid/arrow-sm-up -->\n                    <svg class=\"self-center flex-shrink-0 h-5 w-5 text-green-500\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\" aria-hidden=\"true\">\n                        <path fill-rule=\"evenodd\" d=\"M5.293 9.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 7.414V15a1 1 0 11-2 0V7.414L6.707 9.707a1 1 0 01-1.414 0z\" clip-rule=\"evenodd\" />\n                    </svg>\n                    <span class=\"sr-only\">\n            Increased by\n          </span>\n                    5.4%\n                </p>\n                <div class=\"absolute bottom-0 inset-x-0 bg-gray-50 px-4 py-4 sm:px-6\">\n                    <div class=\"text-sm\">\n                        <a href=\"#\" class=\"font-medium text-indigo-600 hover:text-indigo-500\"> View all<span class=\"sr-only\"> Avg. Open Rate stats</span></a>\n                    </div>\n                </div>\n            </dd>\n        </div>\n\n        <div class=\"relative bg-white pt-5 px-4 pb-12 sm:pt-6 sm:px-6 shadow rounded-lg overflow-hidden\">\n            <dt>\n                <div class=\"absolute bg-indigo-500 rounded-md p-3\">\n                    <!-- Heroicon name: outline/cursor-click -->\n                    <svg class=\"h-6 w-6 text-white\" xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\" aria-hidden=\"true\">\n                        <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122\" />\n                    </svg>\n                </div>\n                <p class=\"ml-16 text-sm font-medium text-gray-500 truncate\">Avg. Click Rate</p>\n            </dt>\n            <dd class=\"ml-16 pb-6 flex items-baseline sm:pb-7\">\n                <p class=\"text-2xl font-semibold text-gray-900\">\n                    24.57%\n                </p>\n                <p class=\"ml-2 flex items-baseline text-sm font-semibold text-red-600\">\n                    <!-- Heroicon name: solid/arrow-sm-down -->\n                    <svg class=\"self-center flex-shrink-0 h-5 w-5 text-red-500\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\" aria-hidden=\"true\">\n                        <path fill-rule=\"evenodd\" d=\"M14.707 10.293a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 111.414-1.414L9 12.586V5a1 1 0 012 0v7.586l2.293-2.293a1 1 0 011.414 0z\" clip-rule=\"evenodd\" />\n                    </svg>\n                    <span class=\"sr-only\">\n            Decreased by\n          </span>\n                    3.2%\n                </p>\n                <div class=\"absolute bottom-0 inset-x-0 bg-gray-50 px-4 py-4 sm:px-6\">\n                    <div class=\"text-sm\">\n                        <a href=\"#\" class=\"font-medium text-indigo-600 hover:text-indigo-500\"> View all<span class=\"sr-only\"> Avg. Click Rate stats</span></a>\n                    </div>\n                </div>\n            </dd>\n        </div>\n    </dl>\n</div>\n\n\n\n<!-- This example requires Tailwind CSS v2.0+ -->\n<div class=\"bg-white shadow overflow-hidden sm:rounded-lg my-8\">\n    <div class=\"px-4 py-5 sm:px-6\">\n        <h3 class=\"text-lg leading-6 font-medium text-gray-900\">\n            Applicant Information\n        </h3>\n        <p class=\"mt-1 max-w-2xl text-sm text-gray-500\">\n            Personal details and application.\n        </p>\n    </div>\n    <div class=\"border-t border-gray-200 px-4 py-5 sm:p-0\">\n        <dl class=\"sm:divide-y sm:divide-gray-200\">\n            <div class=\"py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6\">\n                <dt class=\"text-sm font-medium text-gray-500\">\n                    Full name\n                </dt>\n                <dd class=\"mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2\">\n                    Margot Foster\n                </dd>\n            </div>\n            <div class=\"py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6\">\n                <dt class=\"text-sm font-medium text-gray-500\">\n                    Application for\n                </dt>\n                <dd class=\"mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2\">\n                    Backend Developer\n                </dd>\n            </div>\n            <div class=\"py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6\">\n                <dt class=\"text-sm font-medium text-gray-500\">\n                    Email address\n                </dt>\n                <dd class=\"mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2\">\n                    margotfoster@example.com\n                </dd>\n            </div>\n            <div class=\"py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6\">\n                <dt class=\"text-sm font-medium text-gray-500\">\n                    Salary expectation\n                </dt>\n                <dd class=\"mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2\">\n                    $120,000\n                </dd>\n            </div>\n            <div class=\"py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6\">\n                <dt class=\"text-sm font-medium text-gray-500\">\n                    About\n                </dt>\n                <dd class=\"mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2\">\n                    Fugiat ipsum ipsum deserunt culpa aute sint do nostrud anim incididunt cillum culpa consequat. Excepteur qui ipsum aliquip consequat sint. Sit id mollit nulla mollit nostrud in ea officia proident. Irure nostrud pariatur mollit ad adipisicing reprehenderit deserunt qui eu.\n                </dd>\n            </div>\n            <div class=\"py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6\">\n                <dt class=\"text-sm font-medium text-gray-500\">\n                    Attachments\n                </dt>\n                <dd class=\"mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2\">\n                    <ul class=\"border border-gray-200 rounded-md divide-y divide-gray-200\">\n                        <li class=\"pl-3 pr-4 py-3 flex items-center justify-between text-sm\">\n                            <div class=\"w-0 flex-1 flex items-center\">\n                                <!-- Heroicon name: solid/paper-clip -->\n                                <svg class=\"flex-shrink-0 h-5 w-5 text-gray-400\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\" aria-hidden=\"true\">\n                                    <path fill-rule=\"evenodd\" d=\"M8 4a3 3 0 00-3 3v4a5 5 0 0010 0V7a1 1 0 112 0v4a7 7 0 11-14 0V7a5 5 0 0110 0v4a3 3 0 11-6 0V7a1 1 0 012 0v4a1 1 0 102 0V7a3 3 0 00-3-3z\" clip-rule=\"evenodd\" />\n                                </svg>\n                                <span class=\"ml-2 flex-1 w-0 truncate\">\n                  resume_back_end_developer.pdf\n                </span>\n                            </div>\n                            <div class=\"ml-4 flex-shrink-0\">\n                                <a href=\"#\" class=\"font-medium text-indigo-600 hover:text-indigo-500\">\n                                    Download\n                                </a>\n                            </div>\n                        </li>\n                        <li class=\"pl-3 pr-4 py-3 flex items-center justify-between text-sm\">\n                            <div class=\"w-0 flex-1 flex items-center\">\n                                <!-- Heroicon name: solid/paper-clip -->\n                                <svg class=\"flex-shrink-0 h-5 w-5 text-gray-400\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\" fill=\"currentColor\" aria-hidden=\"true\">\n                                    <path fill-rule=\"evenodd\" d=\"M8 4a3 3 0 00-3 3v4a5 5 0 0010 0V7a1 1 0 112 0v4a7 7 0 11-14 0V7a5 5 0 0110 0v4a3 3 0 11-6 0V7a1 1 0 012 0v4a1 1 0 102 0V7a3 3 0 00-3-3z\" clip-rule=\"evenodd\" />\n                                </svg>\n                                <span class=\"ml-2 flex-1 w-0 truncate\">\n                  coverletter_back_end_developer.pdf\n                </span>\n                            </div>\n                            <div class=\"ml-4 flex-shrink-0\">\n                                <a href=\"#\" class=\"font-medium text-indigo-600 hover:text-indigo-500\">\n                                    Download\n                                </a>\n                            </div>\n                        </li>\n                    </ul>\n                </dd>\n            </div>\n        </dl>\n    </div>\n</div>\n"
         },
         {
+            "name": "DropdownsComponent",
+            "id": "component-DropdownsComponent-6679993eb540e4f15f3152a80d6ee022",
+            "file": "stories/components/dropdowns/dropdowns.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "storybook-dropdown",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<div class=\"flex justify-center\">\n    <sc-tw-dropdown>\n        <div class=\"relative inline-block text-left\">\n            <div sc-tw-dropdown-button>\n                <button type=\"button\"\n                        class=\"inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500\"\n                        id=\"menu-button\" aria-expanded=\"true\" aria-haspopup=\"true\">\n                    Options\n                    <!-- Heroicon name: solid/chevron-down -->\n                    <svg class=\"-mr-1 ml-2 h-5 w-5\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\"\n                         fill=\"currentColor\" aria-hidden=\"true\">\n                        <path fill-rule=\"evenodd\"\n                              d=\"M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z\"\n                              clip-rule=\"evenodd\"/>\n                    </svg>\n                </button>\n            </div>\n\n            <!--\n              Dropdown menu, show/hide based on menu state.\n\n              Entering: \"transition ease-out duration-100\"\n                From: \"transform opacity-0 scale-95\"\n                To: \"transform opacity-100 scale-100\"\n              Leaving: \"transition ease-in duration-75\"\n                From: \"transform opacity-100 scale-100\"\n                To: \"transform opacity-0 scale-95\"\n            -->\n            <div sc-tw-dropdown-content\n                 class=\"origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none\"\n                 role=\"menu\" aria-orientation=\"vertical\" aria-labelledby=\"menu-button\" tabindex=\"-1\">\n                <div class=\"py-1\" role=\"none\">\n                    <!-- Active: \"bg-gray-100 text-gray-900\", Not Active: \"text-gray-700\" -->\n                    <a href=\"#\" class=\"text-gray-700 block px-4 py-2 text-sm\" role=\"menuitem\" tabindex=\"-1\"\n                       id=\"menu-item-0\">Account settings</a>\n                    <a href=\"#\" class=\"text-gray-700 block px-4 py-2 text-sm\" role=\"menuitem\" tabindex=\"-1\"\n                       id=\"menu-item-1\">Support</a>\n                    <a href=\"#\" class=\"text-gray-700 block px-4 py-2 text-sm\" role=\"menuitem\" tabindex=\"-1\"\n                       id=\"menu-item-2\">License</a>\n                    <form method=\"POST\" action=\"#\" role=\"none\">\n                        <button type=\"submit\" class=\"text-gray-700 block w-full text-left px-4 py-2 text-sm\"\n                                role=\"menuitem\" tabindex=\"-1\" id=\"menu-item-3\">\n                            Sign out\n                        </button>\n                    </form>\n                </div>\n            </div>\n        </div>\n    </sc-tw-dropdown>\n</div>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\n\n@Component({\n  selector: 'storybook-dropdown',\n  template: `\n      <div class=\"flex justify-center\">\n          <sc-tw-dropdown>\n              <div class=\"relative inline-block text-left\">\n                  <div sc-tw-dropdown-button>\n                      <button type=\"button\"\n                              class=\"inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500\"\n                              id=\"menu-button\" aria-expanded=\"true\" aria-haspopup=\"true\">\n                          Options\n                          <!-- Heroicon name: solid/chevron-down -->\n                          <svg class=\"-mr-1 ml-2 h-5 w-5\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 20 20\"\n                               fill=\"currentColor\" aria-hidden=\"true\">\n                              <path fill-rule=\"evenodd\"\n                                    d=\"M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z\"\n                                    clip-rule=\"evenodd\"/>\n                          </svg>\n                      </button>\n                  </div>\n\n                  <!--\n                    Dropdown menu, show/hide based on menu state.\n                \n                    Entering: \"transition ease-out duration-100\"\n                      From: \"transform opacity-0 scale-95\"\n                      To: \"transform opacity-100 scale-100\"\n                    Leaving: \"transition ease-in duration-75\"\n                      From: \"transform opacity-100 scale-100\"\n                      To: \"transform opacity-0 scale-95\"\n                  -->\n                  <div sc-tw-dropdown-content\n                       class=\"origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none\"\n                       role=\"menu\" aria-orientation=\"vertical\" aria-labelledby=\"menu-button\" tabindex=\"-1\">\n                      <div class=\"py-1\" role=\"none\">\n                          <!-- Active: \"bg-gray-100 text-gray-900\", Not Active: \"text-gray-700\" -->\n                          <a href=\"#\" class=\"text-gray-700 block px-4 py-2 text-sm\" role=\"menuitem\" tabindex=\"-1\"\n                             id=\"menu-item-0\">Account settings</a>\n                          <a href=\"#\" class=\"text-gray-700 block px-4 py-2 text-sm\" role=\"menuitem\" tabindex=\"-1\"\n                             id=\"menu-item-1\">Support</a>\n                          <a href=\"#\" class=\"text-gray-700 block px-4 py-2 text-sm\" role=\"menuitem\" tabindex=\"-1\"\n                             id=\"menu-item-2\">License</a>\n                          <form method=\"POST\" action=\"#\" role=\"none\">\n                              <button type=\"submit\" class=\"text-gray-700 block w-full text-left px-4 py-2 text-sm\"\n                                      role=\"menuitem\" tabindex=\"-1\" id=\"menu-item-3\">\n                                  Sign out\n                              </button>\n                          </form>\n                      </div>\n                  </div>\n              </div>\n          </sc-tw-dropdown>\n      </div>\n  `\n  // styleUrls: ['./button.css'],\n})\nexport default class DropdownsComponent {\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": ""
+        },
+        {
             "name": "HeadingsPageComponent",
             "id": "component-HeadingsPageComponent-cca6d3739e0057905d2580fe98fc8de8",
             "file": "projects/sc-tailwind-demo/src/app/pages/headings-page/headings-page.component.ts",
@@ -603,6 +567,151 @@
             "implements": [
                 "OnInit"
             ]
+        },
+        {
+            "name": "ScTwDropdownComponent",
+            "id": "component-ScTwDropdownComponent-e7011ce1c56aea679dd1c3f74043854b",
+            "file": "projects/sc-tailwind/src/lib/directives/menu-dropdown/sc-tw-dropdown.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "sc-tw-dropdown",
+            "styleUrls": [
+                "./sc-tw-dropdown.component.css"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./sc-tw-dropdown.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "buttonChild",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ScTwDropdownButtonDirective",
+                    "optional": false,
+                    "description": "",
+                    "line": 11,
+                    "decorators": [
+                        {
+                            "name": "ContentChild",
+                            "stringifiedArguments": "ScTwDropdownButtonDirective"
+                        }
+                    ]
+                },
+                {
+                    "name": "contentChild",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ScTwDropdownContentDirective",
+                    "optional": false,
+                    "description": "",
+                    "line": 12,
+                    "decorators": [
+                        {
+                            "name": "ContentChild",
+                            "stringifiedArguments": "ScTwDropdownContentDirective, {read: ElementRef}"
+                        }
+                    ]
+                },
+                {
+                    "name": "showContent",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 14,
+                    "modifierKind": [
+                        120
+                    ]
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "buttonClicked",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 23,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        120
+                    ]
+                },
+                {
+                    "name": "hideMenu",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 41,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        120
+                    ]
+                },
+                {
+                    "name": "ngAfterContentInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 18,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "showMenu",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 34,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        120
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { AfterContentInit, Component, ContentChild, ElementRef, OnInit } from '@angular/core';\nimport { ScTwDropdownButtonDirective } from \"./sc-tw-dropdown-button.directive\";\nimport { ScTwDropdownContentDirective } from \"./sc-tw-dropdown-content.directive\";\n\n@Component({\n  selector: 'sc-tw-dropdown',\n  templateUrl: './sc-tw-dropdown.component.html',\n  styleUrls: ['./sc-tw-dropdown.component.css']\n})\nexport class ScTwDropdownComponent implements AfterContentInit {\n  @ContentChild(ScTwDropdownButtonDirective) buttonChild!: ScTwDropdownButtonDirective;\n  @ContentChild(ScTwDropdownContentDirective, { read: ElementRef }) contentChild!: ScTwDropdownContentDirective;\n\n  private showContent = false;\n\n  constructor() { }\n\n  ngAfterContentInit(): void {\n    this.hideMenu();\n    this.buttonChild?.$clicked?.subscribe(x => this.buttonClicked());\n  }\n\n  private buttonClicked() {\n    if (this.contentChild) {\n      this.showContent = !this.showContent;\n      if (this.showContent) {\n        this.showMenu();\n      } else {\n        this.hideMenu();\n      }\n    }\n  }\n\n  private showMenu() {\n    if (this.contentChild) {\n      // @ts-ignore\n      this.renderer.removeClass(this.contentChild.nativeElement, 'hidden');\n    }\n  }\n\n  private hideMenu() {\n    if (this.contentChild) {\n      // @ts-ignore\n      this.renderer.addClass(this.contentChild.nativeElement, 'hidden');\n    }\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./sc-tw-dropdown.component.css"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 14
+            },
+            "implements": [
+                "AfterContentInit"
+            ],
+            "templateData": "<div class=\"sc-tw-dropdown-button\">\n    <ng-content select=\"[sc-tw-dropdown-button]\"></ng-content>\n</div>\n<div class=\"sc-tw-menu\">\n    <ng-content select=\"[sc-tw-dropdown-content]\"></ng-content>\n</div>\n"
         },
         {
             "name": "TablesPageComponent",
@@ -769,13 +878,13 @@
         },
         {
             "name": "ScTailwindModule",
-            "id": "module-ScTailwindModule-f6087e931555dae77fad1d2445c3d705",
+            "id": "module-ScTailwindModule-9f3099d6a28455bc009467119be3a448",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "projects/sc-tailwind/src/lib/sc-tailwind.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { ScTailwindComponent } from './sc-tailwind.component';\nimport { ScTwDropdown } from './directives/menu-dropdown/sc-tw-dropdown.directive';\nimport { ScTwDropdownButtonDirective } from './directives/menu-dropdown/sc-tw-dropdown-button.directive';\nimport { ScTwDropdownContentDirective } from './directives/menu-dropdown/sc-tw-dropdown-content.directive';\n\n\n\n@NgModule({\n  declarations: [\n    ScTailwindComponent,\n    ScTwDropdown,\n    ScTwDropdownButtonDirective,\n    ScTwDropdownContentDirective\n  ],\n  imports: [\n  ],\n  exports: [\n    ScTwDropdown,\n    ScTwDropdownButtonDirective,\n    ScTwDropdownContentDirective\n  ]\n})\nexport class ScTailwindModule { }\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { ScTailwindComponent } from './sc-tailwind.component';\nimport { ScTwDropdownButtonDirective } from './directives/menu-dropdown/sc-tw-dropdown-button.directive';\nimport { ScTwDropdownContentDirective } from './directives/menu-dropdown/sc-tw-dropdown-content.directive';\nimport { ScTwDropdownComponent } from './directives/menu-dropdown/sc-tw-dropdown.component';\n\n\n\n@NgModule({\n  declarations: [\n    ScTailwindComponent,\n    ScTwDropdownButtonDirective,\n    ScTwDropdownContentDirective,\n    ScTwDropdownComponent\n  ],\n  imports: [\n  ],\n  exports: [\n    ScTwDropdownButtonDirective,\n    ScTwDropdownContentDirective,\n    ScTwDropdownComponent\n  ]\n})\nexport class ScTailwindModule { }\n",
             "children": [
                 {
                     "type": "providers",
@@ -788,10 +897,10 @@
                             "name": "ScTailwindComponent"
                         },
                         {
-                            "name": "ScTwDropdown"
+                            "name": "ScTwDropdownButtonDirective"
                         },
                         {
-                            "name": "ScTwDropdownButtonDirective"
+                            "name": "ScTwDropdownComponent"
                         },
                         {
                             "name": "ScTwDropdownContentDirective"
@@ -806,10 +915,10 @@
                     "type": "exports",
                     "elements": [
                         {
-                            "name": "ScTwDropdown"
+                            "name": "ScTwDropdownButtonDirective"
                         },
                         {
-                            "name": "ScTwDropdownButtonDirective"
+                            "name": "ScTwDropdownComponent"
                         },
                         {
                             "name": "ScTwDropdownContentDirective"
@@ -833,7 +942,7 @@
                 "name": "context",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/sc-tailwind-demo/src/test.ts",
+                "file": "projects/sc-tailwind/src/test.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -843,11 +952,21 @@
                 "name": "context",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/sc-tailwind/src/test.ts",
+                "file": "projects/sc-tailwind-demo/src/test.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
                 "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
+            },
+            {
+                "name": "DropdownAnimationTransition",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "projects/sc-tailwind/src/lib/directives/menu-dropdown/sc-tw-dropdown.animations.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "trigger('simpleFadeAnimation', [\n  // the \"in\" style determines the \"resting\" state of the element when it is visible.\n  state('in', style({opacity: 1})),\n\n  // fade in when created. this could also be written as transition('void => *')\n  transition(':enter', [\n    style({opacity: 0}),\n    animate(600 )\n  ]),\n\n  // fade out when destroyed. this could also be written as transition('void => *')\n  transition(':leave',\n    animate(600, style({opacity: 0})))\n])"
             },
             {
                 "name": "environment",
@@ -870,10 +989,10 @@
                 "defaultValue": "{\n  production: false\n}"
             },
             {
-                "name": "Large",
+                "name": "Menu",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "stories/components/buttons/buttons.stories.ts",
+                "file": "stories/components/dropdowns/dropdowns.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -893,7 +1012,7 @@
                 "name": "require",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/sc-tailwind-demo/src/test.ts",
+                "file": "projects/sc-tailwind/src/test.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "literal type"
@@ -902,23 +1021,13 @@
                 "name": "require",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "projects/sc-tailwind/src/test.ts",
+                "file": "projects/sc-tailwind-demo/src/test.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "literal type"
             },
             {
                 "name": "Secondary",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "stories/components/buttons/buttons.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Small",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
                 "file": "stories/components/buttons/buttons.stories.ts",
@@ -936,12 +1045,43 @@
                 "deprecationMessage": "",
                 "type": "Story<ButtonComponent>",
                 "defaultValue": "(args: ButtonComponent) => ({\n  props: args,\n})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "stories/components/dropdowns/dropdowns.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<DropdownsComponent>",
+                "defaultValue": "(args: DropdownsComponent) => ({\n  props: args,\n})"
             }
         ],
         "functions": [],
         "typealiases": [],
         "enumerations": [],
         "groupedVariables": {
+            "projects/sc-tailwind/src/test.ts": [
+                {
+                    "name": "context",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/sc-tailwind/src/test.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
+                },
+                {
+                    "name": "require",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "projects/sc-tailwind/src/test.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "literal type"
+                }
+            ],
             "projects/sc-tailwind-demo/src/test.ts": [
                 {
                     "name": "context",
@@ -963,25 +1103,16 @@
                     "type": "literal type"
                 }
             ],
-            "projects/sc-tailwind/src/test.ts": [
+            "projects/sc-tailwind/src/lib/directives/menu-dropdown/sc-tw-dropdown.animations.ts": [
                 {
-                    "name": "context",
+                    "name": "DropdownAnimationTransition",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "projects/sc-tailwind/src/test.ts",
+                    "file": "projects/sc-tailwind/src/lib/directives/menu-dropdown/sc-tw-dropdown.animations.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
-                    "defaultValue": "require.context('./', true, /\\.spec\\.ts$/)"
-                },
-                {
-                    "name": "require",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "projects/sc-tailwind/src/test.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "literal type"
+                    "defaultValue": "trigger('simpleFadeAnimation', [\n  // the \"in\" style determines the \"resting\" state of the element when it is visible.\n  state('in', style({opacity: 1})),\n\n  // fade in when created. this could also be written as transition('void => *')\n  transition(':enter', [\n    style({opacity: 0}),\n    animate(600 )\n  ]),\n\n  // fade out when destroyed. this could also be written as transition('void => *')\n  transition(':leave',\n    animate(600, style({opacity: 0})))\n])"
                 }
             ],
             "projects/sc-tailwind-demo/src/environments/environment.prod.ts": [
@@ -1008,17 +1139,29 @@
                     "defaultValue": "{\n  production: false\n}"
                 }
             ],
-            "stories/components/buttons/buttons.stories.ts": [
+            "stories/components/dropdowns/dropdowns.stories.ts": [
                 {
-                    "name": "Large",
+                    "name": "Menu",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "stories/components/buttons/buttons.stories.ts",
+                    "file": "stories/components/dropdowns/dropdowns.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
                     "defaultValue": "Template.bind({})"
                 },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "stories/components/dropdowns/dropdowns.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<DropdownsComponent>",
+                    "defaultValue": "(args: DropdownsComponent) => ({\n  props: args,\n})"
+                }
+            ],
+            "stories/components/buttons/buttons.stories.ts": [
                 {
                     "name": "Primary",
                     "ctype": "miscellaneous",
@@ -1031,16 +1174,6 @@
                 },
                 {
                     "name": "Secondary",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "stories/components/buttons/buttons.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Small",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
                     "file": "stories/components/buttons/buttons.stories.ts",
@@ -1201,7 +1334,7 @@
                 "linktype": "directive",
                 "name": "ScTwDropdownButtonDirective",
                 "coveragePercent": 0,
-                "coverageCount": "0/2",
+                "coverageCount": "0/6",
                 "status": "low"
             },
             {
@@ -1214,12 +1347,22 @@
                 "status": "low"
             },
             {
-                "filePath": "projects/sc-tailwind/src/lib/directives/menu-dropdown/sc-tw-dropdown.directive.ts",
-                "type": "directive",
-                "linktype": "directive",
-                "name": "ScTwDropdown",
+                "filePath": "projects/sc-tailwind/src/lib/directives/menu-dropdown/sc-tw-dropdown.animations.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "DropdownAnimationTransition",
                 "coveragePercent": 0,
-                "coverageCount": "0/7",
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "projects/sc-tailwind/src/lib/directives/menu-dropdown/sc-tw-dropdown.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ScTwDropdownComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/9",
                 "status": "low"
             },
             {
@@ -1274,16 +1417,6 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Large",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "stories/components/buttons/buttons.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
                 "name": "Primary",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
@@ -1304,13 +1437,32 @@
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
-                "name": "Small",
+                "name": "Template",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"
             },
             {
-                "filePath": "stories/components/buttons/buttons.stories.ts",
+                "filePath": "stories/components/dropdowns/dropdowns.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "DropdownsComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/components/dropdowns/dropdowns.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Menu",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "stories/components/dropdowns/dropdowns.stories.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",

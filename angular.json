@@ -7,7 +7,7 @@
       "projectType": "library",
       "root": "projects/sc-tailwind",
       "sourceRoot": "projects/sc-tailwind/src",
-      "prefix": "sc-tw-",
+      "prefix": "sc-tw",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",

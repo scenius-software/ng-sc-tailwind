@@ -1,24 +1,26 @@
 import { NgModule } from '@angular/core';
 import { ScTailwindComponent } from './sc-tailwind.component';
-import { ScTwDropdown } from './directives/menu-dropdown/sc-tw-dropdown.directive';
 import { ScTwDropdownButtonDirective } from './directives/menu-dropdown/sc-tw-dropdown-button.directive';
 import { ScTwDropdownContentDirective } from './directives/menu-dropdown/sc-tw-dropdown-content.directive';
+import { ScTwDropdownComponent } from './directives/menu-dropdown/sc-tw-dropdown.component';
+import { CommonModule } from "@angular/common";
 
 
 
 @NgModule({
   declarations: [
     ScTailwindComponent,
-    ScTwDropdown,
     ScTwDropdownButtonDirective,
-    ScTwDropdownContentDirective
+    ScTwDropdownContentDirective,
+    ScTwDropdownComponent
   ],
   imports: [
+    CommonModule
   ],
   exports: [
-    ScTwDropdown,
     ScTwDropdownButtonDirective,
-    ScTwDropdownContentDirective
+    ScTwDropdownContentDirective,
+    ScTwDropdownComponent
   ]
 })
 export class ScTailwindModule { }

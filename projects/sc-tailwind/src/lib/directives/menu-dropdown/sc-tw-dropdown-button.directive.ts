@@ -1,10 +1,20 @@
-import { Directive } from '@angular/core';
+import { Directive, ElementRef, HostListener, OnDestroy, Renderer2 } from '@angular/core';
+import { Subject } from "rxjs";
 
 @Directive({
   selector: '[sc-tw-dropdown-button]'
 })
-export class ScTwDropdownButtonDirective {
+export class ScTwDropdownButtonDirective implements OnDestroy {
+  $clicked = new Subject<boolean>();
 
-  constructor() { }
+  constructor(private renderer: Renderer2, element: ElementRef) {
+  }
 
+  @HostListener('click') onClick() {
+    this.$clicked.next();
+  }
+
+  ngOnDestroy(): void {
+    this.$clicked.complete();
+  }
 }
