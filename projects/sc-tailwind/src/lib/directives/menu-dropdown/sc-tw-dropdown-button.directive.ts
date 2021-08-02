@@ -15,8 +15,8 @@ export class ScTwDropdownButtonDirective implements OnDestroy {
 
   constructor(private renderer: Renderer2, private element: ElementRef) {}
 
-  @HostListener('click') onClick() {
-    this.$clicked.next();
+  @HostListener('click', ["$event"]) onClick($event: any) {
+    this.$clicked.next(true);
   }
 
   ngOnDestroy(): void {

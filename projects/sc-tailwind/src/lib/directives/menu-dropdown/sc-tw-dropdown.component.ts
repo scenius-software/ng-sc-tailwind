@@ -4,17 +4,17 @@ import {
   ChangeDetectorRef,
   Component,
   ContentChild,
-  ElementRef,
-  HostListener,
   Renderer2,
 } from '@angular/core';
 import { ScTwDropdownButtonDirective } from './sc-tw-dropdown-button.directive';
 import { ScTwDropdownContentDirective } from './sc-tw-dropdown-content.directive';
+import { Subject } from "rxjs";
+import { debounceTime, filter} from "rxjs/operators";
 
 @Component({
   selector: 'sc-tw-dropdown',
   templateUrl: './sc-tw-dropdown.component.html',
-  styleUrls: ['./sc-tw-dropdown.component.scss'],
+  styleUrls: [ './sc-tw-dropdown.component.scss' ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ScTwDropdownComponent implements AfterContentInit {
@@ -24,27 +24,24 @@ export class ScTwDropdownComponent implements AfterContentInit {
   contentChild!: ScTwDropdownContentDirective;
 
   showContent = false;
+  _$showContent = new Subject();
 
   constructor(
     private _cdRef: ChangeDetectorRef,
     private _renderer: Renderer2
-  ) {}
-
-  ngAfterContentInit(): void {
-    this.contentChild?.$blurred?.subscribe((x) => this.buttonBlurred());
-    this.buttonChild?.$clicked?.subscribe((x) => this.buttonClicked());
+  ) {
   }
 
-  private buttonBlurred() {
-    if (this.contentChild && this.showContent) {
-      console.log('should blur');
-      this.showContent = false;
-      this._cdRef.markForCheck();
-    }
+  ngAfterContentInit(): void {
+    this.contentChild.$blurred
+      .pipe(
+        filter(() => (() => this.showContent)())
+      ).subscribe(() => this._$showContent.next());
+    this.buttonChild.$clicked.subscribe(() => this._$showContent.next());
+    this._$showContent.pipe(debounceTime(1)).subscribe(() => this.buttonClicked());
   }
 
   private buttonClicked() {
-    console.log('clicked button');
     if (this.contentChild) {
       this.showContent = !this.showContent;
       this._cdRef.markForCheck();

@@ -1,11 +1,4 @@
-import {
-  Directive,
-  ElementRef,
-  HostListener,
-  Input,
-  OnInit,
-  Renderer2,
-} from '@angular/core';
+import { Directive, ElementRef, HostListener, Renderer2, } from '@angular/core';
 import { Subject } from 'rxjs';
 
 @Directive({
@@ -16,9 +9,8 @@ export class ScTwDropdownContentDirective {
 
   constructor(private renderer: Renderer2, private element: ElementRef) {}
 
-  @HostListener('document:mousedown', ['$event'])
+  @HostListener('document:click', ['$event'])
   onBlur(event: any) {
-    console.log('blur');
     if (!this.element.nativeElement.contains(event.target)) {
       // clicked outside => close dropdown list
       this.$blurred.next();
