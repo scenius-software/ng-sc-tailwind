@@ -1,6 +1,7 @@
 {
   "name": "sc-tailwind-multi",
   "version": "0.0.0",
+  "homepage": "http://scenius-software.github.io/ng-sc-tailwind",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --project sc-tailwind-demo",
@@ -10,6 +11,8 @@
     "test": "ng test",
     "docs:json": "compodoc -p ./tsconfig.json -e json -d .",
     "storybook": "npm run docs:json && start-storybook -p 6006",
+    "predeploy-storybook": "build-storybook -s ./storybook-static -o ./.out",
+    "deploy-storybook": "storybook-to-ghpages -- --out=.out",
     "build-storybook": "npm run docs:json && build-storybook"
   },
   "private": true,
@@ -42,6 +45,7 @@
     "@storybook/angular": "^6.3.4",
     "@storybook/builder-webpack5": "^6.3.4",
     "@storybook/manager-webpack5": "^6.3.4",
+    "@storybook/storybook-deployer": "^2.8.10",
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.11.1",
     "@webcomponents/custom-elements": "^1.4.3",
