@@ -6,7 +6,7 @@
     class="__sc-tw-menu"
     [ngClass]="{
       'transition ease-out duration-100 transform opacity-100 scale-100': showContent,
-      'transition ease-in duration-75 transform opacity-0 scale-95': !showContent
+      'transition ease-in duration-75 transform opacity-0 scale-95 pointer-events-none': !showContent
     }"
   >
     <ng-content select="[sc-tw-dropdown-content]"></ng-content>
