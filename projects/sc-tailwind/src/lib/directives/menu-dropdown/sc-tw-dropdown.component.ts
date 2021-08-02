@@ -20,7 +20,7 @@ import { ScTwDropdownContentDirective } from './sc-tw-dropdown-content.directive
 export class ScTwDropdownComponent implements AfterContentInit {
   @ContentChild(ScTwDropdownButtonDirective)
   buttonChild!: ScTwDropdownButtonDirective;
-  @ContentChild(ScTwDropdownContentDirective, { read: ElementRef })
+  @ContentChild(ScTwDropdownContentDirective)
   contentChild!: ScTwDropdownContentDirective;
 
   showContent = false;
@@ -31,19 +31,20 @@ export class ScTwDropdownComponent implements AfterContentInit {
   ) {}
 
   ngAfterContentInit(): void {
+    this.contentChild?.$blurred?.subscribe((x) => this.buttonBlurred());
     this.buttonChild?.$clicked?.subscribe((x) => this.buttonClicked());
-    this.buttonChild?.$blurred?.subscribe((x) => this.buttonBlurred());
   }
 
   private buttonBlurred() {
-    if (this.contentChild) {
+    if (this.contentChild && this.showContent) {
+      console.log('should blur');
       this.showContent = false;
       this._cdRef.markForCheck();
     }
   }
 
   private buttonClicked() {
-    console.log('wee');
+    console.log('clicked button');
     if (this.contentChild) {
       this.showContent = !this.showContent;
       this._cdRef.markForCheck();
