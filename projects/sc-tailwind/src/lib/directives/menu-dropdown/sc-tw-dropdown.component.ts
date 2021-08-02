@@ -10,13 +10,11 @@ import {
 } from '@angular/core';
 import { ScTwDropdownButtonDirective } from './sc-tw-dropdown-button.directive';
 import { ScTwDropdownContentDirective } from './sc-tw-dropdown-content.directive';
-import { DropdownAnimationTransition } from './sc-tw-dropdown.animations';
 
 @Component({
   selector: 'sc-tw-dropdown',
   templateUrl: './sc-tw-dropdown.component.html',
   styleUrls: ['./sc-tw-dropdown.component.scss'],
-  animations: [DropdownAnimationTransition],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ScTwDropdownComponent implements AfterContentInit {
