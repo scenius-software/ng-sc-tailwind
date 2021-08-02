@@ -13,6 +13,7 @@
     "storybook": "npm run docs:json && start-storybook -p 6006",
     "predeploy-storybook": "npm run docs:json && build-storybook -s ./storybook-static -o ./.out",
     "deploy-storybook": "storybook-to-ghpages -- --out=.out",
+    "deploy-storybook-ci": "storybook-to-ghpages -- --out=.out --ci",
     "build-storybook": "npm run docs:json && build-storybook"
   },
   "private": true,
