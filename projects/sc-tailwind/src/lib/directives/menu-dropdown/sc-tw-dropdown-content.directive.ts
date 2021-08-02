@@ -18,10 +18,6 @@ export class ScTwDropdownContentDirective {
 
   @HostListener('document:mousedown', ['$event'])
   onBlur(event: any) {
-    console.log(
-      'contains?>: ',
-      !this.element.nativeElement.contains(event.target)
-    );
     if (!this.element.nativeElement.contains(event.target)) {
       // clicked outside => close dropdown list
       this.$blurred.next();
