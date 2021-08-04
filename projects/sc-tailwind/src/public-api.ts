@@ -11,6 +11,8 @@ export * from './lib/directives/menu-dropdown/sc-tw-dropdown-content.directive';
 export * from './lib/directives/menu-dropdown/sc-tw-dropdown.component';
 
 export * from './lib/services/sc-tailwind-modal.service';
+export * from './lib/modals/sc-tw-modal-backdrop/sc-tw-modal-backdrop.component'
 
 export * from './lib/toggle/sc-tw-toggle.component'
 export * from './lib/toggle/sc-tw-toggle.directive'
+export * from './lib/toggle/toggle-handle.directive'

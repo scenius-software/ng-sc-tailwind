@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { ScTailwindModule } from "../../../sc-tailwind/src/lib/sc-tailwind.module";
 import { MenuDropdownComponent } from './pages/Menu/menu-dropdown/menu-dropdown.component';
 import { FormToggleComponent } from './pages/Form/form-toggle/form-toggle.component';
+import { ScTwModalBackdropComponent } from "../../../sc-tailwind/src/lib/modals/sc-tw-modal-backdrop/sc-tw-modal-backdrop.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuDropdownComponent,
-    FormToggleComponent
+    FormToggleComponent,
+    ScTwModalBackdropComponent
   ],
   imports: [
     BrowserModule,
