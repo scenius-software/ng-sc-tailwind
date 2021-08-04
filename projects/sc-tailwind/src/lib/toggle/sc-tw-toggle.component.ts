@@ -1,47 +1,61 @@
 import { ToggleHandleDirective } from './toggle-handle.directive';
 import {
   AfterContentInit,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   ContentChild,
-  EventEmitter,
+  ElementRef,
   Input,
-  Output,,
 } from '@angular/core';
+import { ControlValueAccessor } from '@angular/forms';
 
 @Component({
   selector: 'sc-tw-toggle',
   templateUrl: './sc-tw-toggle.component.html',
   styleUrls: ['./sc-tw-toggle.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ScTwToggleComponent implements AfterContentInit {
+export class ScTwToggleComponent
+  implements AfterContentInit, ControlValueAccessor {
+  constructor(private _ref: ElementRef, private _cdRef: ChangeDetectorRef) {}
+
+  @Input()
   toggled = false;
 
+  onTouched = () => {};
+  onChange = (toggled: boolean) => {};
+
   // Styling options
-  @Input('containerClass')
-  containerClass!: string;
+  @Input('customClass')
+  customClass!: string;
   @Input('activeContainerClass')
   activeContainerClass!: string;
   transitionClass!: string;
 
-  // Exposed variables
-  @Output() onChange: EventEmitter<any> = new EventEmitter();
-  @Input() selected!: boolean;
-
   @ContentChild(ToggleHandleDirective)
   handleChild!: ToggleHandleDirective;
 
-  constructor() {}
+  writeValue(toggled: boolean): void {
+    this.toggled = toggled;
+  }
+  registerOnChange(onChange: any): void {
+    this.onChange = onChange;
+  }
+  registerOnTouched(fn: any): void {
+    this.onTouched = fn;
+  }
 
   toggleButton() {
     this.toggled = !this.toggled;
-    this.onChange.emit(this.toggled);
+    if (this.onChange) {
+      this.onChange(this.toggled);
+    }
+    this._cdRef.markForCheck();
   }
 
   ngAfterContentInit(): void {
     // Maps the transition class from the handle to the parent directive
-    this.transitionClass = this.handleChild.transitionClass;
-
-    // Map initial starting state
-    this.toggled = this.selected;
+    this.transitionClass = this.handleChild?.transitionClass;
   }
 }
