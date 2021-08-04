@@ -5,15 +5,12 @@
   role="switch"
   aria-checked="false"
   [class]="containerClass"
-  [ngClass]="{
-    'bg-indigo-600': toggled
-  }"
+  [ngClass]="toggled ? activeContainerClass : ''"
 >
-  <ng-content
-    [ngClass]="{
-      'translate-x-0': !toggled,
-      'translate-x-5': toggled
-    }"
-    select="[sc-tw-toggle-handle]"
-  ></ng-content>
+  <div
+    class="pointer-events-none transform transition ease-in-out duration-200"
+    [ngClass]="toggled ? transitionClass : ''"
+  >
+    <ng-content select="[sc-tw-toggle-handle]"></ng-content>
+  </div>
 </button>
