@@ -8,9 +8,8 @@ describe('ScTwModalBackdropComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ScTwModalBackdropComponent ]
-    })
-    .compileComponents();
+      declarations: [ScTwModalBackdropComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
