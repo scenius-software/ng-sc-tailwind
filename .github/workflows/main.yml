@@ -23,7 +23,7 @@ jobs:
 
       - name: Build Github Pages
         run: |
-          npm run predeploy-storybook
+          npm run create-deployment
 
       - name: Publish GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
