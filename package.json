@@ -7,7 +7,7 @@
     "start": "ng serve --project sc-tailwind-demo",
     "build": "ng build",
     "build-library-prod": "ng build --project=sc-tailwind --configuration=production",
-    "create-deployment": "ng build --prod --project=sc-tailwind-demo --output-path=./.out",
+    "create-deployment": "ng build --configuration=production --project=sc-tailwind-demo --output-path=./.out",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
