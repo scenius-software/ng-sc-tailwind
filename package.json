@@ -7,8 +7,8 @@
     "start": "ng serve --project sc-tailwind-demo",
     "build": "ng build",
     "build-library-prod": "ng build --project=sc-tailwind --configuration=production",
-    "create-deployment": "ng build --configuration=production --project=sc-tailwind-demo --output-path=./.out",
-    "watch": "ng build --watch --configuration development",
+    "create-deployment": "ng build --base-href \"https://scenius-software.github.io/ng-sc-tailwind/\" --configuration=production --project=sc-tailwind-demo --output-path=./.out",
+    "watch",: "ng build --watch --configuration development",
     "test": "ng test"
   },
   "private": true,
