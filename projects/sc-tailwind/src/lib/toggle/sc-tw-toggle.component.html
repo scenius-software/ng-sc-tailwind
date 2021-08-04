@@ -1,0 +1,19 @@
+<!-- This example requires Tailwind CSS v2.0+ -->
+<button
+  (click)="toggleButton()"
+  type="button"
+  role="switch"
+  aria-checked="false"
+  [class]="containerClass"
+  [ngClass]="{
+    'bg-indigo-600': toggled
+  }"
+>
+  <ng-content
+    [ngClass]="{
+      'translate-x-0': !toggled,
+      'translate-x-5': toggled
+    }"
+    select="[sc-tw-toggle-handle]"
+  ></ng-content>
+</button>
