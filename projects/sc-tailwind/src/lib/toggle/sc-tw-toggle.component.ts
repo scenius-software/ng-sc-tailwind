@@ -3,9 +3,9 @@ import {
   AfterContentInit,
   Component,
   ContentChild,
+  EventEmitter,
   Input,
-  OnInit,
-  ViewEncapsulation,
+  Output,,
 } from '@angular/core';
 
 @Component({
@@ -16,24 +16,32 @@ import {
 export class ScTwToggleComponent implements AfterContentInit {
   toggled = false;
 
+  // Styling options
   @Input('containerClass')
   containerClass!: string;
   @Input('activeContainerClass')
   activeContainerClass!: string;
+  transitionClass!: string;
+
+  // Exposed variables
+  @Output() onChange: EventEmitter<any> = new EventEmitter();
+  @Input() selected!: boolean;
 
   @ContentChild(ToggleHandleDirective)
   handleChild!: ToggleHandleDirective;
-
-  transitionClass!: string;
 
   constructor() {}
 
   toggleButton() {
     this.toggled = !this.toggled;
+    this.onChange.emit(this.toggled);
   }
 
   ngAfterContentInit(): void {
-    console.log(this.handleChild);
+    // Maps the transition class from the handle to the parent directive
     this.transitionClass = this.handleChild.transitionClass;
+
+    // Map initial starting state
+    this.toggled = this.selected;
   }
 }
