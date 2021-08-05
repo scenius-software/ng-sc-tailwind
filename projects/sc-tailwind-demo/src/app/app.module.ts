@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ScTailwindModule } from "../../../sc-tailwind/src/lib/sc-tailwind.module";
+import { ScTailwindModule } from '../../../sc-tailwind/src/lib/sc-tailwind.module';
 import { MenuDropdownComponent } from './pages/Menu/menu-dropdown/menu-dropdown.component';
 import { FormToggleComponent } from './pages/Form/form-toggle/form-toggle.component';
 import { ModalToggleComponent } from './pages/Modal/modal-toggle/modal-toggle/modal-toggle.component';
@@ -16,16 +16,16 @@ import { MyModalComponent } from 'projects/sc-tailwind-demo/src/app/pages/Modal/
     MenuDropdownComponent,
     FormToggleComponent,
     ModalToggleComponent,
-    MyModalComponent
+    MyModalComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CommonModule,
     ScTailwindModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
