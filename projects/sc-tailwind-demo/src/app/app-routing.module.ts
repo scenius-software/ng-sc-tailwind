@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MenuDropdownComponent } from "./pages/Menu/menu-dropdown/menu-dropdown.component";
 import { FormToggleComponent } from "./pages/Form/form-toggle/form-toggle.component";
+import { ModalToggleComponent } from 'projects/sc-tailwind-demo/src/app/pages/Modal/modal-toggle/modal-toggle/modal-toggle.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/menu-dropdown', pathMatch: 'full' },
@@ -15,6 +16,10 @@ const routes: Routes = [
       {
         path: 'form-toggle',
         component: FormToggleComponent
+      },
+      {
+        path: 'modal-toggle',
+        component: ModalToggleComponent
       }
     ]
   }

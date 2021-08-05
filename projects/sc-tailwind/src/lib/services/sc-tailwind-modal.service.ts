@@ -1,37 +1,54 @@
 import {
   ApplicationRef,
+  ComponentFactory,
   ComponentFactoryResolver,
   ElementRef,
   Inject,
   Injectable,
   Injector,
+  Type,
 } from '@angular/core';
+import { ModalRef } from 'projects/sc-tailwind/src/lib/services/modal-service-modals/modal-ref.model';
+import { Modal } from 'projects/sc-tailwind/src/lib/services/modal-service-modals/modal.model';
+import { ScTwModalBackdropComponent } from 'projects/sc-tailwind/src/public-api';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ScTailwindModalService {
-  appElementRef: ElementRef;
-  factoryResolver: ComponentFactoryResolver;
+  private modalContainer!: HTMLElement;
+  private modalContainerFactory!: ComponentFactory<ScTwModalBackdropComponent>;
+
   constructor(
-    @Inject(ComponentFactoryResolver) factoryResolver: any,
-    private applicationRef: ApplicationRef,
-    injector: Injector
+    private componentFactoryResolver: ComponentFactoryResolver,
+    private appRef: ApplicationRef
   ) {
-    this.appElementRef = injector.get(
-      applicationRef.componentTypes[0]
-    ).elementRef;
-
-    this.factoryResolver = factoryResolver;
-
-    console.log(this.appElementRef);
+    this.setupModalContainerFactory();
   }
 
-  // setRootViewContainerRef(viewContainerRef: any) {
-  //   this.rootViewContainer = viewContainerRef;
-  // }
+  open<T extends Modal>(component: Type<T>, inputs?: any): ModalRef {
+    this.setupModalContainerDiv();
 
-  open(component: Element): void {}
+    const modalContainerRef = this.appRef.bootstrap(this.modalContainerFactory, this.modalContainer);
 
-  dismissAll(): void {}
+    const modalComponentRef = modalContainerRef.instance.createModal(component);
+
+    if (inputs) {
+      modalComponentRef.instance.onInjectInputs(inputs);
+    }
+
+    const modalRef = new ModalRef(modalContainerRef, modalComponentRef);
+    setTimeout(() => modalComponentRef.instance.isOpen = true, 100);
+    return modalRef;
+  }
+
+  private setupModalContainerDiv(): void {
+    this.modalContainer = document.createElement('div');
+    document.getElementsByTagName('body')[0].appendChild(this.modalContainer);
+  }
+
+  private setupModalContainerFactory(): void {
+    this.modalContainerFactory = this.componentFactoryResolver.resolveComponentFactory(ScTwModalBackdropComponent);
+  }
+
 }
