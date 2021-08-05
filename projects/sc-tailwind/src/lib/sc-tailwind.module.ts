@@ -9,6 +9,7 @@ import { ScTwToggleDirective } from './toggle/sc-tw-toggle.directive';
 import { ScTwToggleComponent } from './toggle/sc-tw-toggle.component';
 import { ToggleHandleDirective } from './toggle/toggle-handle.directive';
 import { ScTwModalBackdropComponent } from './modals/sc-tw-modal-backdrop/sc-tw-modal-backdrop.component';
+import { ScTwNavItemDirective } from './directives/sidebar-nav-item-expandable/sc-tw-nav-item.directive';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { ScTwModalBackdropComponent } from './modals/sc-tw-modal-backdrop/sc-tw-
     ScTwToggleComponent,
     ToggleHandleDirective,
     ScTwModalBackdropComponent,
+    ScTwNavItemDirective,
   ],
   imports: [CommonModule],
   exports: [
