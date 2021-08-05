@@ -9,6 +9,7 @@ import { FormToggleComponent } from './pages/Form/form-toggle/form-toggle.compon
 import { ModalToggleComponent } from './pages/Modal/modal-toggle/modal-toggle/modal-toggle.component';
 import { CommonModule } from '@angular/common';
 import { MyModalComponent } from 'projects/sc-tailwind-demo/src/app/pages/Modal/modal-toggle/modal-toggle/test-modal.component';
+import { SidebarShowcaseComponent } from './pages/Sidebar/sidebar-showcase/sidebar-showcase.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { MyModalComponent } from 'projects/sc-tailwind-demo/src/app/pages/Modal/
     FormToggleComponent,
     ModalToggleComponent,
     MyModalComponent,
+    SidebarShowcaseComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,8 @@
+import { SidebarShowcaseComponent } from './pages/Sidebar/sidebar-showcase/sidebar-showcase.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MenuDropdownComponent } from "./pages/Menu/menu-dropdown/menu-dropdown.component";
-import { FormToggleComponent } from "./pages/Form/form-toggle/form-toggle.component";
+import { MenuDropdownComponent } from './pages/Menu/menu-dropdown/menu-dropdown.component';
+import { FormToggleComponent } from './pages/Form/form-toggle/form-toggle.component';
 import { ModalToggleComponent } from 'projects/sc-tailwind-demo/src/app/pages/Modal/modal-toggle/modal-toggle/modal-toggle.component';
 
 const routes: Routes = [
@@ -11,22 +12,26 @@ const routes: Routes = [
     children: [
       {
         path: 'menu-dropdown',
-        component: MenuDropdownComponent
+        component: MenuDropdownComponent,
       },
       {
         path: 'form-toggle',
-        component: FormToggleComponent
+        component: FormToggleComponent,
       },
       {
         path: 'modal-toggle',
-        component: ModalToggleComponent
-      }
-    ]
-  }
+        component: ModalToggleComponent,
+      },
+      {
+        path: 'sidebar',
+        component: SidebarShowcaseComponent,
+      },
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
