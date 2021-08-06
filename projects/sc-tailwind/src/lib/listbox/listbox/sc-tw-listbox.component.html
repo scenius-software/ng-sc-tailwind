@@ -1,0 +1,21 @@
+<div class="sc-tw-listbox-wrapper">
+    <div class="sc-tw-listbox-button">
+        <ng-content select="sc-tw-listbox-button">
+        </ng-content>
+    </div>
+
+    <div class="sc-tw-listbox-content w-full transition ease-in duration-100" [ngClass]="{ 'opacity-0 pointer-events-none': !menuOpen, 'opacity-100': menuOpen }">
+        <ng-content select="sc-tw-listbox-options">
+
+        </ng-content>
+        <!--<ng-container *ngTemplateOutlet="defaultOptions">-->
+
+        <!--</ng-container>-->
+    </div>
+
+</div>
+
+<ng-template #defaultOptions>
+    <sc-tw-listbox-options>
+    </sc-tw-listbox-options>
+</ng-template>

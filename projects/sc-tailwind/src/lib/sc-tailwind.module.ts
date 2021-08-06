@@ -10,6 +10,10 @@ import { ScTwToggleComponent } from './toggle/sc-tw-toggle.component';
 import { ToggleHandleDirective } from './toggle/toggle-handle.directive';
 import { ScTwModalBackdropComponent } from './modals/sc-tw-modal-backdrop/sc-tw-modal-backdrop.component';
 import { ScTwNavItemDirective } from './directives/sidebar-nav-item-expandable/sc-tw-nav-item.directive';
+import { ScTwListboxComponent } from './listbox/listbox/sc-tw-listbox.component';
+import { ScTwListboxButtonComponent } from './listbox/sc-tw-listbox-button/sc-tw-listbox-button.component';
+import { ScTwListboxOptionComponent } from './listbox/sc-tw-listbox-option/sc-tw-listbox-option.component';
+import { ScTwListboxOptionsComponent } from './listbox/sc-tw-listbox-options/sc-tw-listbox-options.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +26,10 @@ import { ScTwNavItemDirective } from './directives/sidebar-nav-item-expandable/s
     ToggleHandleDirective,
     ScTwModalBackdropComponent,
     ScTwNavItemDirective,
+    ScTwListboxComponent,
+    ScTwListboxButtonComponent,
+    ScTwListboxOptionComponent,
+    ScTwListboxOptionsComponent,
   ],
   imports: [CommonModule],
   exports: [
@@ -32,6 +40,10 @@ import { ScTwNavItemDirective } from './directives/sidebar-nav-item-expandable/s
     ScTwToggleComponent,
     ToggleHandleDirective,
     ScTwModalBackdropComponent,
+    ScTwListboxComponent,
+    ScTwListboxButtonComponent,
+    ScTwListboxOptionComponent,
+    ScTwListboxOptionsComponent,
   ],
 })
 export class ScTailwindModule {}
