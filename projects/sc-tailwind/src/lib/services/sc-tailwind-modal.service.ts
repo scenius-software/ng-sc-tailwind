@@ -10,7 +10,7 @@ import {
 } from '@angular/core';
 import { ModalRef } from './modal-service-modals/modal-ref.model';
 import { Modal } from './modal-service-modals/modal.model';
-import { ScTwModalBackdropComponent } from 'projects/sc-tailwind/src/public-api';
+import { ScTwModalBackdropComponent } from '../modals/sc-tw-modal-backdrop/sc-tw-modal-backdrop.component';
 
 @Injectable({
   providedIn: 'root',

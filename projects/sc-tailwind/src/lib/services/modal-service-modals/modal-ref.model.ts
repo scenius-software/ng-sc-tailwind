@@ -1,5 +1,5 @@
 import { ComponentRef } from '@angular/core';
-import { ScTwModalBackdropComponent } from 'projects/sc-tailwind/src/lib/modals/sc-tw-modal-backdrop/sc-tw-modal-backdrop.component';
+import { ScTwModalBackdropComponent } from '../../modals/sc-tw-modal-backdrop/sc-tw-modal-backdrop.component';
 import { Observable, Subject } from 'rxjs';
 
 import { Modal } from './modal.model';
