@@ -8,8 +8,8 @@ import {
   Injector,
   Type,
 } from '@angular/core';
-import { ModalRef } from 'projects/sc-tailwind/src/lib/services/modal-service-modals/modal-ref.model';
-import { Modal } from 'projects/sc-tailwind/src/lib/services/modal-service-modals/modal.model';
+import { ModalRef } from './modal-service-modals/modal-ref.model';
+import { Modal } from './modal-service-modals/modal.model';
 import { ScTwModalBackdropComponent } from 'projects/sc-tailwind/src/public-api';
 
 @Injectable({
