@@ -1,5 +1,5 @@
 import { Component, ComponentFactory, ComponentFactoryResolver, ComponentRef, Type, ViewChild, ViewContainerRef } from '@angular/core';
-import { Modal } from 'projects/sc-tailwind/src/lib/services/modal-service-modals/modal.model';
+import { Modal } from '../../services/modal-service-modals/modal.model';
 @Component({
   selector: 'sc-tw-modal-backdrop',
   templateUrl: './sc-tw-modal-backdrop.component.html',

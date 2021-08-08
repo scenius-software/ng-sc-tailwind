@@ -46,4 +46,4 @@ import { ScTwListboxOptionsComponent } from './listbox/sc-tw-listbox-options/sc-
     ScTwListboxOptionsComponent,
   ],
 })
-export class ScTailwindModule {}
+export class ScTailwindModule { }
