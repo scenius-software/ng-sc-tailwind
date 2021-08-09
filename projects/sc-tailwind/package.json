@@ -1,6 +1,6 @@
 {
   "name": "sc-tailwind",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "An Angular implementation of Headless UI",
   "author": "Scenius Software Engineering",
   "homepage": "https://github.com/scenius-software/ng-sc-tailwind",
