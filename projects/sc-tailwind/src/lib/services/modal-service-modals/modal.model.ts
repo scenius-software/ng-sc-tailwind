@@ -1,5 +1,7 @@
+import { Injectable } from '@angular/core';
 import { ModalRef } from './modal-ref.model';
 
+@Injectable()
 export abstract class Modal {
 
   modalInstance!: ModalRef;
