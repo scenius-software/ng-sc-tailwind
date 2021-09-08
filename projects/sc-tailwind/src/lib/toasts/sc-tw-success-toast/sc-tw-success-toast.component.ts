@@ -3,9 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { Toast } from '../../services/notification-service-toasts/toast.model';
 
 @Component({
-  selector: 'sc-tw-sc-tw-default-toast',
-  templateUrl: './sc-tw-default-toast.component.html',
-  styleUrls: ['./sc-tw-default-toast.component.css'],
+  selector: 'sc-tw-sc-tw-success-toast',
+  templateUrl: './sc-tw-success-toast.component.html',
+  styleUrls: ['./sc-tw-success-toast.component.css'],
   animations: [
     trigger('Fading', [
       state('void', style({ opacity: 0, transform: 'Translatex(30px)' })),
@@ -15,7 +15,7 @@ import { Toast } from '../../services/notification-service-toasts/toast.model';
     ])
   ]
 })
-export class ScTwDefaultToastComponent extends Toast implements OnInit {
+export class ScTwSuccessToastComponent extends Toast implements OnInit {
 
   title!: string;
   message!: string;

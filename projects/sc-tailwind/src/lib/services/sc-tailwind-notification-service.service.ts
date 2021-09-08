@@ -3,7 +3,8 @@ import { ToastRef } from './notification-service-toasts/toast-ref.model';
 import { Toast } from './notification-service-toasts/toast.model';
 import { Observable, Subject } from 'rxjs';
 import { ScTwToastContainerComponent } from '../toasts/sc-tw-toast-container/sc-tw-toast-container.component';
-import { ScTwDefaultToastComponent } from 'projects/sc-tailwind/src/lib/toasts/sc-tw-default-toast/sc-tw-default-toast.component';
+import { ScTwDefaultToastComponent } from '../toasts/sc-tw-default-toast/sc-tw-default-toast.component';
+import { ScTwSuccessToastComponent } from '../toasts/sc-tw-success-toast/sc-tw-success-toast.component';
 
 @Injectable({
   providedIn: 'root'
@@ -61,6 +62,10 @@ export class ScTailwindNotificationService {
 
   info(title: string, message: string, timeout = 3000) {
     this.triggerCustom(ScTwDefaultToastComponent, { title, message, timeout })
+  }
+
+  success(title: string, message: string, timeout = 3000) {
+    this.triggerCustom(ScTwSuccessToastComponent, { title, message, timeout })
   }
 
   removeNotification(toast: ToastRef) {

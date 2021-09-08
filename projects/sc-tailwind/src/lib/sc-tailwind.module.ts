@@ -16,6 +16,9 @@ import { ScTwListboxOptionComponent } from './listbox/sc-tw-listbox-option/sc-tw
 import { ScTwListboxOptionsComponent } from './listbox/sc-tw-listbox-options/sc-tw-listbox-options.component';
 import { ScTwToastContainerComponent } from './toasts/sc-tw-toast-container/sc-tw-toast-container.component';
 import { ScTwDefaultToastComponent } from './toasts/sc-tw-default-toast/sc-tw-default-toast.component';
+import { ScTwSuccessToastComponent } from './toasts/sc-tw-success-toast/sc-tw-success-toast.component';
+import { ScTwDangerToastComponent } from './toasts/sc-tw-danger-toast/sc-tw-danger-toast.component';
+import { ScTwWarningToastComponent } from './toasts/sc-tw-warning-toast/sc-tw-warning-toast.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +37,9 @@ import { ScTwDefaultToastComponent } from './toasts/sc-tw-default-toast/sc-tw-de
     ScTwListboxOptionsComponent,
     ScTwToastContainerComponent,
     ScTwDefaultToastComponent,
+    ScTwSuccessToastComponent,
+    ScTwDangerToastComponent,
+    ScTwWarningToastComponent,
   ],
   imports: [CommonModule],
   exports: [

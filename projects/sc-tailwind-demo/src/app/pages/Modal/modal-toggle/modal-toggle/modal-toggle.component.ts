@@ -23,4 +23,8 @@ export class ModalToggleComponent implements OnInit {
     const toastRef = this.toastService.info('test', 'test2');
   }
 
+  showSuccessToast() {
+    const toastRef = this.toastService.success('sucess', 'well done!');
+  }
+
 }
