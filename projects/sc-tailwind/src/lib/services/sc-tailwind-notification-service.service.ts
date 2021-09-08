@@ -60,7 +60,7 @@ export class ScTailwindNotificationService {
   }
 
   info(title: string, message: string, timeout = 3000) {
-    this.triggerCustom(ScTwDefaultToastComponent, { title: 'Test toast', message: 'If i did it correctly, this works!' })
+    this.triggerCustom(ScTwDefaultToastComponent, { title, message, timeout })
   }
 
   removeNotification(toast: ToastRef) {

@@ -19,10 +19,12 @@ export class ScTwDefaultToastComponent extends Toast implements OnInit {
 
   title!: string;
   message!: string;
+  timeout!: number;
 
   onInjectInputs(inputs: any): void {
     this.title = inputs.title;
     this.message = inputs.message;
+    this.timeout = inputs.timeout;
   }
 
   closeToast() {
@@ -36,6 +38,6 @@ export class ScTwDefaultToastComponent extends Toast implements OnInit {
     this.isOpen = true;
     setTimeout(() => {
       this.closeToast();
-    }, 3000);
+    }, this.timeout);
   }
 }
