@@ -1,7 +1,6 @@
-import { Injectable } from '@angular/core';
+import { Component, Injectable } from '@angular/core';
 import { ModalRef } from './modal-ref.model';
 
-@Injectable()
 export abstract class Modal {
 
   modalInstance!: ModalRef;
@@ -18,6 +17,4 @@ export abstract class Modal {
     this.isOpen = false;
     setTimeout(() => this.modalInstance.dismiss(output), 200);
   }
-
-
 }

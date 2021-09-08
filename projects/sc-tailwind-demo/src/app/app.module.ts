@@ -32,4 +32,4 @@ import { FormListboxComponent } from './pages/Form/form-listbox/form-listbox.com
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
