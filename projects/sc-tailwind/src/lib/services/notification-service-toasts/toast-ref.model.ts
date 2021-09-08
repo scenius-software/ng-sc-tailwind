@@ -9,7 +9,7 @@ export class ToastRef {
   constructor(
     private modal: ComponentRef<Toast>,
   ) {
-    this.modal.instance.modalInstance = this;
+    this.modal.instance.toastInstance = this;
   }
 
   dismiss(output: any): void {
