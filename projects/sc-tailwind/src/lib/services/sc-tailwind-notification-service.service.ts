@@ -64,7 +64,11 @@ export class ScTailwindNotificationService {
   }
 
   removeNotification(toast: ToastRef) {
-    this.toasts.splice(this.toasts.indexOf(toast), 1);
+    const removeIndex = this.toasts.indexOf(toast);
+    if (!removeIndex) {
+      return;
+    }
+    this.toasts.splice(removeIndex, 1);
     this._subject.next(this.toasts);
   }
 
