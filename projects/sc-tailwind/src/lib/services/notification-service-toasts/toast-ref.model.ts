@@ -1,4 +1,5 @@
 import { ComponentRef } from '@angular/core';
+import { ScTailwindNotificationService } from '../sc-tailwind-notification-service.service';
 import { Observable, Subject } from 'rxjs';
 import { Toast } from './toast.model';
 
@@ -7,13 +8,15 @@ export class ToastRef {
   private result$ = new Subject<any>();
 
   constructor(
-    private modal: ComponentRef<Toast>,
+    private toast: ComponentRef<Toast>,
+    private notificationService: ScTailwindNotificationService
   ) {
-    this.modal.instance.toastInstance = this;
+    this.toast.instance.toastInstance = this;
   }
 
   dismiss(output: any): void {
     this.result$.error(output);
+    this.notificationService.removeNotification(this);
     this.destroy$();
   }
 
@@ -22,7 +25,7 @@ export class ToastRef {
   }
 
   private destroy$(): void {
-    this.modal.destroy();
+    this.toast.destroy();
     this.result$.complete();
   }
 

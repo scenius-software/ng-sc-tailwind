@@ -1,5 +1,5 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Toast } from '../../services/notification-service-toasts/toast.model';
 
 @Component({
@@ -8,14 +8,14 @@ import { Toast } from '../../services/notification-service-toasts/toast.model';
   styleUrls: ['./sc-tw-default-toast.component.css'],
   animations: [
     trigger('Fading', [
-      state('void', style({ opacity: 0 })),
-      state('*', style({ opacity: 1 })),
-      transition(':enter', animate('800ms ease-out')),
-      transition(':leave', animate('800ms ease-in')),
+      state('void', style({ opacity: 0, transform: 'Scale(0.9)' })),
+      state('*', style({ opacity: 1, transform: 'Scale(1)' })),
+      transition(':enter', animate('250ms ease-out')),
+      transition(':leave', animate('150ms ease-in')),
     ])
   ]
 })
-export class ScTwDefaultToastComponent extends Toast {
+export class ScTwDefaultToastComponent extends Toast implements OnInit {
 
   title!: string;
   message!: string;
@@ -23,5 +23,19 @@ export class ScTwDefaultToastComponent extends Toast {
   onInjectInputs(inputs: any): void {
     this.title = inputs.title;
     this.message = inputs.message;
+  }
+
+  closeToast() {
+    this.isOpen = false;
+    setTimeout(() => {
+      this.dismiss();
+    }, 150);
+  }
+
+  ngOnInit() {
+    this.isOpen = true;
+    setTimeout(() => {
+      this.closeToast();
+    }, 3000);
   }
 }

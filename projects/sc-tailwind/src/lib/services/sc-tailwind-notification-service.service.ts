@@ -53,7 +53,7 @@ export class ScTailwindNotificationService {
       modalComponentRef.instance.onInjectInputs(inputs);
     }
 
-    const toastRef = new ToastRef(modalComponentRef);
+    const toastRef = new ToastRef(modalComponentRef, this);
     this.toasts.push(toastRef);
     this._subject.next(this.toasts);
     return toastRef;
@@ -61,6 +61,11 @@ export class ScTailwindNotificationService {
 
   info(title: string, message: string, timeout = 3000) {
     this.triggerCustom(ScTwDefaultToastComponent, { title: 'Test toast', message: 'If i did it correctly, this works!' })
+  }
+
+  removeNotification(toast: ToastRef) {
+    this.toasts.splice(this.toasts.indexOf(toast), 1);
+    this._subject.next(this.toasts);
   }
 
   // success(title: string, message: string, timeout = 3000) {
