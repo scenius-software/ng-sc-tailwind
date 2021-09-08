@@ -14,6 +14,8 @@ import { ScTwListboxComponent } from './listbox/listbox/sc-tw-listbox.component'
 import { ScTwListboxButtonComponent } from './listbox/sc-tw-listbox-button/sc-tw-listbox-button.component';
 import { ScTwListboxOptionComponent } from './listbox/sc-tw-listbox-option/sc-tw-listbox-option.component';
 import { ScTwListboxOptionsComponent } from './listbox/sc-tw-listbox-options/sc-tw-listbox-options.component';
+import { ScTwToastContainerComponent } from './toasts/sc-tw-toast-container/sc-tw-toast-container.component';
+import { ScTwDefaultToastComponent } from './toasts/sc-tw-default-toast/sc-tw-default-toast.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { ScTwListboxOptionsComponent } from './listbox/sc-tw-listbox-options/sc-
     ScTwListboxButtonComponent,
     ScTwListboxOptionComponent,
     ScTwListboxOptionsComponent,
+    ScTwToastContainerComponent,
+    ScTwDefaultToastComponent,
   ],
   imports: [CommonModule],
   exports: [
@@ -44,6 +48,8 @@ import { ScTwListboxOptionsComponent } from './listbox/sc-tw-listbox-options/sc-
     ScTwListboxButtonComponent,
     ScTwListboxOptionComponent,
     ScTwListboxOptionsComponent,
+    ScTwToastContainerComponent,
+    ScTwDefaultToastComponent
   ],
 })
 export class ScTailwindModule { }

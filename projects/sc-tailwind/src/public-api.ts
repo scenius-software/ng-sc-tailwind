@@ -23,3 +23,9 @@ export * from './lib/listbox/listbox/sc-tw-listbox.component'
 export * from './lib/listbox/sc-tw-listbox-button/sc-tw-listbox-button.component'
 export * from './lib/listbox/sc-tw-listbox-option/sc-tw-listbox-option.component'
 export * from './lib/listbox/sc-tw-listbox-options/sc-tw-listbox-options.component'
+
+export * from './lib/services/sc-tailwind-notification-service.service';
+export * from './lib/toasts/sc-tw-toast-container/sc-tw-toast-container.component';
+export * from './lib/toasts/sc-tw-default-toast/sc-tw-default-toast.component';
+export * from './lib/services/notification-service-toasts/toast.model';
+export * from './lib/services/notification-service-toasts/toast-ref.model';
