@@ -1,4 +1,3 @@
-import { Component, Injectable } from '@angular/core';
 import { ModalRef } from './modal-ref.model';
 
 export abstract class Modal {
