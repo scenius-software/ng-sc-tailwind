@@ -11,6 +11,7 @@ import { CommonModule } from '@angular/common';
 import { MyModalComponent } from 'projects/sc-tailwind-demo/src/app/pages/Modal/modal-toggle/modal-toggle/test-modal.component';
 import { SidebarShowcaseComponent } from './pages/Sidebar/sidebar-showcase/sidebar-showcase.component';
 import { FormListboxComponent } from './pages/Form/form-listbox/form-listbox.component';
+import { ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { FormListboxComponent } from './pages/Form/form-listbox/form-listbox.com
     CommonModule,
     ScTailwindModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
