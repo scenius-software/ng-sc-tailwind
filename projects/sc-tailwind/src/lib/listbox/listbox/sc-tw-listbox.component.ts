@@ -37,16 +37,13 @@ export class ScTwListboxComponent implements AfterContentInit, OnDestroy, Contro
   options: ScTwListboxOptionsComponent | undefined
 
   @Output() optionSelected: any;
-  private _selectedOption: any;
-
+  selectedOption: any;
 
   menuOpen = false;
   onChange: any = () => {
   };
   onTouched: any = () => {
   };
-
-  private subscriptions: any;
   forceClose = new Subject<any>();
 
   private _$destroyed = new Subject();
@@ -86,7 +83,12 @@ export class ScTwListboxComponent implements AfterContentInit, OnDestroy, Contro
       ).subscribe(() => {
         this.menuOpen = false;
         this._cdRef.markForCheck();
-      })
+      });
+      if(this.options?.optionbutton?.first) {
+        this.writeValue(this.options.optionbutton.first.data);
+        this.onChange(this.options.optionbutton.first.data);
+        this._cdRef.markForCheck();
+      }
     }
   }
 
@@ -98,6 +100,7 @@ export class ScTwListboxComponent implements AfterContentInit, OnDestroy, Contro
 
   registerOnChange(fn: any): void {
     this.onChange = fn;
+    this.onChange(this.selectedOption);
   }
 
   registerOnTouched(fn: any): void {
@@ -105,7 +108,7 @@ export class ScTwListboxComponent implements AfterContentInit, OnDestroy, Contro
   }
 
   writeValue(obj: any): void {
-    this._selectedOption = obj;
+    this.selectedOption = obj;
   }
 
   private _buttonClicked() {

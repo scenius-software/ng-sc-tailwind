@@ -2,7 +2,6 @@
     Listbox
 </h2>
 
-<!-- This example requires Tailwind CSS v2.0+ -->
 <div class="flex justify-between bg-gray-300 p-8 flex-col rounded-lg">
     <div class="flex flex-1">
 
@@ -13,18 +12,19 @@
         </div>
         <div class="mt-4 flex md:mt-0 md:ml-4">
             <form [formGroup]="form">
-            <sc-tw-listbox formControlName="select">
-                <sc-tw-listbox-button>Nani</sc-tw-listbox-button>
-                <sc-tw-listbox-options>
-                    <sc-tw-listbox-option [data]="'Hello'">Hello!</sc-tw-listbox-option>
-                    <sc-tw-listbox-option [data]="'World'">World</sc-tw-listbox-option>
-                    <sc-tw-listbox-option [data]="'Baka'">Baka</sc-tw-listbox-option>
-                </sc-tw-listbox-options>
-            </sc-tw-listbox>
+                <sc-tw-listbox formControlName="select">
+                    <sc-tw-listbox-button> {{form.get('select')?.value }}</sc-tw-listbox-button>
+                    <sc-tw-listbox-options>
+                        <sc-tw-listbox-option [data]="'Hello'">Hello!</sc-tw-listbox-option>
+                        <sc-tw-listbox-option [data]="'World'">World</sc-tw-listbox-option>
+                        <sc-tw-listbox-option [data]="'Baka'">Baka</sc-tw-listbox-option>
+                    </sc-tw-listbox-options>
+                </sc-tw-listbox>
             </form>
         </div>
 
-</div>
+    </div>
     <div>
         {{form.value | json}}
     </div>
+</div>

@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnDestroy } from '@angular/core';
 import { Observable, Subject } from "rxjs";
+import { FormControl } from "@angular/forms";
 
 @Component({
   selector: 'sc-tw-listbox-button',
