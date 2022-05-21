@@ -1,6 +1,6 @@
 {
   "name": "sc-tailwind-multi",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "homepage": "http://scenius-software.github.io/ng-sc-tailwind",
   "scripts": {
     "ng": "ng",
@@ -13,14 +13,15 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "~12.0.5",
-    "@angular/common": "~12.0.5",
-    "@angular/compiler": "~12.0.5",
-    "@angular/core": "~12.0.5",
-    "@angular/forms": "~12.0.5",
-    "@angular/platform-browser": "~12.0.5",
-    "@angular/platform-browser-dynamic": "~12.0.5",
-    "@angular/router": "~12.0.5",
+    "@angular-devkit/build-angular": "^13.3.6",
+    "@angular/animations": "~13.3.9",
+    "@angular/common": "~13.3.9",
+    "@angular/compiler": "~13.3.9",
+    "@angular/core": "~13.3.9",
+    "@angular/forms": "~13.3.9",
+    "@angular/platform-browser": "~13.3.9",
+    "@angular/platform-browser-dynamic": "~13.3.9",
+    "@angular/router": "~13.3.9",
     "@tailwindcss/forms": "0.3.3",
     "@tailwindcss/typography": "0.4.1",
     "rxjs": "~6.6.0",
@@ -29,24 +30,23 @@
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~12.0.5",
-    "@angular/cli": "~12.0.5",
-    "@angular/compiler-cli": "~12.0.5",
-    "@angular/elements": "^12.1.2",
+    "@angular/cli": "~13.3.6",
+    "@angular/compiler-cli": "~13.3.9",
+    "@angular/elements": "^13.3.9",
     "@babel/core": "^7.14.6",
-    "css-loader": "^6.2.0",
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.11.1",
     "@webcomponents/custom-elements": "^1.4.3",
     "babel-loader": "^8.2.2",
+    "css-loader": "^6.2.0",
+    "gh-pages": "^3.2.3",
     "jasmine-core": "~3.7.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",
     "karma-coverage": "~2.0.3",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
-    "gh-pages": "^3.2.3",
-    "ng-packagr": "^12.0.0",
-    "typescript": "~4.2.3"
+    "ng-packagr": "^13.3.1",
+    "typescript": "~4.6.4"
   }
 }
